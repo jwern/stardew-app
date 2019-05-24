@@ -1,1 +1,8 @@
-<h2>Villager:</h2><%= @villager.name %>
+<h2>Villager:</h2><%= @villager.name %><br>
+
+<p>
+  <%= link_to 'Edit', edit_villager_path(@villager) %><br>
+  <br>
+  <br>
+  <%= link_to 'Index', villagers_path %>
+</p>

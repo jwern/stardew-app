@@ -1,0 +1,16 @@
+<h1>Edit Villager Info</h1>
+
+<%= form_with model: @villager, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= button_tag "Save Changes", {:name => "submit", :value => "edit"} %>
+    <%= button_tag "Delete Villager", {:name => "submit", :value => "delete"} %>
+  </p>
+
+<% end %>
+<br>
+<%= link_to 'Index', villagers_path %>

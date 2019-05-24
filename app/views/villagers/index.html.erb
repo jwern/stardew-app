@@ -5,10 +5,12 @@
     <th>Name</th>
   </tr>
 
-  <% @villagers.each do |villager| %>
+  <% @villagers.order(:name).each do |villager| %>
     <tr>
       <td><%= villager.name %></td>
       <td><%= link_to 'Profile', villager_path(villager) %></td>
     </tr>
 <% end %>
 </table>
+<br>
+<b><%= link_to 'Add Villager', new_villager_path %></b>
