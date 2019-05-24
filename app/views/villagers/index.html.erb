@@ -1,0 +1,14 @@
+<h2>Stardew Valley Villagers:</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @villagers.each do |villager| %>
+    <tr>
+      <td><%= villager.name %></td>
+      <td><%= link_to 'Profile', villager_path(villager) %></td>
+    </tr>
+<% end %>
+</table>
