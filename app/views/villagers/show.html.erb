@@ -1,14 +1,12 @@
 <h2>Villager:</h2>
 
 <%= headshot(@villager.name) %>
+<br>
 <%= @villager.name %><br>
-<h3> Birth Date:</h3>
+<h4> Birth Date:</h4>
 <%= @villager.birth_season %>
 <%= @villager.birth_day %>
 
 <p>
   <%= link_to 'Edit', edit_villager_path(@villager) %><br>
-  <br>
-  <br>
-  <%= link_to 'Index', villagers_path %>
 </p>

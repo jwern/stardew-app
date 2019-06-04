@@ -1,9 +1,7 @@
 <h1>Edit Villager Info</h1>
 
-<%= render partial: "form", locals: {model: @villager}  %>
+<%= render "form", model: @villager  %>
 
 <%= button_to 'Delete Villager', villager_path(@villager),
                                  method: :delete,
                                  data: { confirm: "Really delete #{@villager.name}?" } %>
-<br>
-<%= link_to 'Index', villagers_path %>

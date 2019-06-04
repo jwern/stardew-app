@@ -29,8 +29,12 @@ class VillagersController < ApplicationController
     @villager = Villager.find(params[:id])
 
     @villager.update_attributes(villager_params)
-    @villager.save
-    redirect_to @villager
+
+    if @villager.save
+      redirect_to @villager
+    else
+      render :edit
+    end
   end
 
   def destroy

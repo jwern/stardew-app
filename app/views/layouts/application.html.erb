@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>StardewApp</title>
+    <title>Stardew App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +11,8 @@
 
   <body>
     <%= yield %>
+    <footer>
+      <br><%= link_to 'Index', villagers_path %>
+    </footer>
   </body>
 </html>
