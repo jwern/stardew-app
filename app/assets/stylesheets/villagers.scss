@@ -1,3 +1,30 @@
 // Place all the styles related to the Villagers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// <div>
+//   <div class="section">
+//   picture of Leah
+//   </div>
+//   <div id="main" class="section">
+//   "Some text about Leah"
+//   </div>
+//   <div class="section">
+//   footer
+//   </div>
+// </div>
+//
+//
+// #main {
+//   background-color: green;
+// }
+//
+//
+// div.section {
+//   background-color: blue;
+// }
+
+.headshot {
+  max-height: 100px;
+  max-width: 80px;
+}

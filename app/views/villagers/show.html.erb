@@ -1,4 +1,10 @@
-<h2>Villager:</h2><%= @villager.name %><br>
+<h2>Villager:</h2>
+
+<%= headshot(@villager.name) %>
+<%= @villager.name %><br>
+<h3> Birth Date:</h3>
+<%= @villager.birth_season %>
+<%= @villager.birth_day %>
 
 <p>
   <%= link_to 'Edit', edit_villager_path(@villager) %><br>

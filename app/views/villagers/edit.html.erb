@@ -1,16 +1,9 @@
 <h1>Edit Villager Info</h1>
 
-<%= form_with model: @villager, local: true do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+<%= render partial: "form", locals: {model: @villager}  %>
 
-  <p>
-    <%= button_tag "Save Changes", {:name => "submit", :value => "edit"} %>
-    <%= button_tag "Delete Villager", {:name => "submit", :value => "delete"} %>
-  </p>
-
-<% end %>
+<%= button_to 'Delete Villager', villager_path(@villager),
+                                 method: :delete,
+                                 data: { confirm: "Really delete #{@villager.name}?" } %>
 <br>
 <%= link_to 'Index', villagers_path %>

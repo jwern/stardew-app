@@ -1,0 +1,19 @@
+<%= form_with model: model, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :birth_season, "Birth Season" %>
+    <%= form.select :birth_season, Villager::BIRTH_SEASONS %>
+    <br>
+    <%= form.label :birth_day, "Birth Day" %>
+    <%= form.select :birth_day, Villager::BIRTH_DAYS %>
+  </p>
+
+  <p>
+    <%= form.submit %><br>
+    <br>
+  </p>
+
+<% end %>

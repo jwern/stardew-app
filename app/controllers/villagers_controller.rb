@@ -1,5 +1,6 @@
 class VillagersController < ApplicationController
   def new
+    @villager = Villager.new
   end
 
   def index
@@ -9,8 +10,11 @@ class VillagersController < ApplicationController
   def create
     @villager = Villager.new(villager_params)
 
-    @villager.save
-    redirect_to @villager
+    if @villager.save
+      redirect_to @villager
+    else
+      render :new
+    end
   end
 
   def show
@@ -24,19 +28,19 @@ class VillagersController < ApplicationController
   def update
     @villager = Villager.find(params[:id])
 
-    case params[:submit]
-    when "edit"
-      @villager.update_attributes(villager_params)
-      @villager.save
-      redirect_to @villager
-    when "delete"
-      @villager.destroy
-      redirect_to action: 'index'
-    end
+    @villager.update_attributes(villager_params)
+    @villager.save
+    redirect_to @villager
+  end
+
+  def destroy
+    @villager = Villager.find(params[:id])
+    @villager.destroy
+    redirect_to villagers_path
   end
 
   private
     def villager_params
-      params.require(:villager).permit(:name)
+      params.require(:villager).permit(:name, :birth_day, :birth_season)
     end
 end

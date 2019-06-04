@@ -7,6 +7,7 @@
 
   <% @villagers.order(:name).each do |villager| %>
     <tr>
+      <td><%= headshot(villager.name) %></td>
       <td><%= villager.name %></td>
       <td><%= link_to 'Profile', villager_path(villager) %></td>
     </tr>
