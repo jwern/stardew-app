@@ -1,0 +1,17 @@
+<%= form_with model: model, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :category %><br>
+    <%= form.select :category, Item::CATEGORIES %><br>
+    <div id="sale_price_box">
+      <%= form.label :sale_price %><br>
+      <%= form.text_field :sale_price %>
+    </div>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+  <% end %>

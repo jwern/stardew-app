@@ -1,2 +1,20 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<h1>Items List</h1>
+<b><%= link_to 'Add New Item', new_item_path %></b>
+<br>
+<br>
+<table>
+  <tr>
+    <th>Item Name</th>
+    <th>Category</th>
+    <th>Sale Price</th>
+  </tr>
+
+  <% @items.order(:name).each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.category %></td>
+      <td><%= item.sale_price %></td>
+      <td><%= link_to 'Item Page', item_path(item) %></td>
+    </tr>
+  <% end %>
+</table>
