@@ -1,7 +1,12 @@
-<h1><%= @item.name %></h1>
+<h2><%= @item.name %></h2>
+
+<%= item_pic(@item.name) %>
+<br>
+<h4>Category:</h4>
+<%= @item.category %><br>
+<h4>Sale Price:</h4>
+<%= @item.sale_price %><br>
 
 <p>
-  <div class="item_label">Category:</div><%= @item.category %><br>
-  <br>
-  <div class="item_label">Sale Price:</div><%= @item.sale_price %>
+  <%= link_to 'Edit', edit_item_path(@item) %><br>
 </p>

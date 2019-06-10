@@ -1,4 +1,4 @@
-<h1>Items List</h1>
+<h2>Items List</h2>
 <b><%= link_to 'Add New Item', new_item_path %></b>
 <br>
 <br>
@@ -11,6 +11,7 @@
 
   <% @items.order(:name).each do |item| %>
     <tr>
+      <td><%= item_pic(item.name) %></td>
       <td><%= item.name %></td>
       <td><%= item.category %></td>
       <td><%= item.sale_price %></td>
