@@ -1,0 +1,19 @@
+<%= form_with model: model, local: true do |form| %>
+
+<p>
+  <%= form.label :villager %><br>
+  <%= form.collection_select :villager_id, Villager.all, :id, :name, prompt: true %><br>
+  <%= form.label :item %><br>
+  <%= form.collection_select :item_id, Item.all, :id, :name, prompt: true %><br>
+
+  <%= form.radio_button :opinion, "Likes" %>
+  <%= form.label :opinion, "Likes" %>
+  <%= form.radio_button :opinion, "Dislikes" %>
+  <%= form.label :opinion, "Dislikes" %>
+
+</p>
+<p>
+  <%= form.submit %>
+</p>
+
+<% end %>

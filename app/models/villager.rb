@@ -1,4 +1,7 @@
 class Villager < ApplicationRecord
+  has_many :preferences
+  has_many :items, through: :preferences 
+
   BIRTH_SEASONS = %w(Spring Summer Fall Winter)
   BIRTH_DAYS = (1..30).to_a
 
