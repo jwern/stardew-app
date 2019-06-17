@@ -4,11 +4,15 @@
 <br>
 <h4>Birth Date:</h4>
 <%= @villager.birth_season %>
-<%= @villager.birth_day %>
+<%= @villager.birth_day %><br>
 
-<h4>Preferences</h4>
-<%= render "preferences/form", model: Preference.new %><br>
+<%= render 'preferences' %>
+<br>
+<br>
+<br>
+<h4>Add Preferences</h4>
+<%= render "preferences/form", model: Preference.new, villager_select: @villager.id %><br>
 
 <p>
-  <%= link_to 'Edit', edit_villager_path(@villager) %><br>
+  <%= link_to 'Edit Villager', edit_villager_path(@villager) %><br>
 </p>

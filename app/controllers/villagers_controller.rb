@@ -19,6 +19,10 @@ class VillagersController < ApplicationController
 
   def show
     @villager = Villager.find(params[:id])
+
+    @preferences = get_prefs
+    @likes = get_opinions("Likes")
+    @dislikes = get_opinions("Dislikes")
   end
 
   def edit
@@ -46,5 +50,14 @@ class VillagersController < ApplicationController
   private
     def villager_params
       params.require(:villager).permit(:name, :birth_day, :birth_season)
+    end
+
+    def get_prefs
+      Preference.select { |prefs| prefs.villager_id == @villager.id }
+    end
+
+    def get_opinions(pref)
+      @preferences.select { |prefs| prefs.opinion == pref }
+      .map { |like| Item.find(like.item_id) }
     end
 end
