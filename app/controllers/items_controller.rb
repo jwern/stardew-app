@@ -19,6 +19,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+
+    @preferences = Preference.select { |prefs| prefs.item_id == @item.id }
+    @likes = @preferences.select { |prefs| prefs.opinion == "Likes" }
+    .map { |like| Villager.find(like.villager_id) }
+    @dislikes = @preferences.select { |prefs| prefs.opinion == "Dislikes" }
+    .map { |dislike| Villager.find(dislike.villager_id) }
   end
 
   def edit
@@ -46,5 +52,9 @@ class ItemsController < ApplicationController
   private
     def item_params
       params.require(:item).permit(:name, :category, :sale_price)
+    end
+
+    def find_villager_names(villagers)
+      Villager.find(villagers.villager_id).name
     end
 end
