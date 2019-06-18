@@ -1,23 +1,18 @@
-<%= form_with model: model ||= Preference.new, villager_select: villager_select ||= nil, local: true do |form| %>
-<% if model.errors.any? %>
-  <div class="error_explanation">
-    <h3><%= "#{model.class} not saved:" %></h3>
-    <ul>
-    <% model.errors.full_messages.each do |message| %>
-      <div id="error_message"><li><%= message %></li></div>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= form_with model: model ||= Preference.new, villager_select: villager_select ||= nil, item_select: item_select ||= nil, local: true do |form| %>
+<%= render 'error_messages', model: model %>
 <p>
   <% if villager_select != nil %>
     <%= form.hidden_field :villager_id, value: villager_select %>
   <% else %>
     <%= form.label :villager %><br>
-    <%= form.collection_select :villager_id, Villager.all, :id, :name, prompt: true %><br>
+    <%= form.collection_select :villager_id, Villager.order(:name).all, :id, :name, prompt: true %><br>
   <% end %>
-  <%= form.label :item %><br>
-  <%= form.collection_select :item_id, Item.all, :id, :name, prompt: true %><br>
+  <% if item_select != nil %>
+    <%= form.hidden_field :item_id, value: item_select %>
+  <% else %>
+    <%= form.label :item %><br>
+    <%= form.collection_select :item_id, Item.order(:name).all, :id, :name, prompt: true %><br>
+  <% end %>
 
   <%= form.radio_button :opinion, "Likes" %>
   <%= form.label :opinion, "Likes" %>

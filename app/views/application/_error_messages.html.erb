@@ -1,0 +1,10 @@
+<% if model.errors.any? %>
+  <div class="error_explanation">
+    <h3><%= "#{model.class} not saved:" %></h3>
+    <ul>
+    <% model.errors.full_messages.each do |message| %>
+      <div id="error_message"><li><%= message %></li></div>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -27,6 +27,7 @@ class VillagersController < ApplicationController
 
   def edit
     @villager = Villager.find(params[:id])
+    @preferences = get_prefs
   end
 
   def update
@@ -53,7 +54,7 @@ class VillagersController < ApplicationController
     end
 
     def get_prefs
-      Preference.select { |prefs| prefs.villager_id == @villager.id }
+      Preference.where(villager_id: @villager.id)
     end
 
     def get_opinions(pref)

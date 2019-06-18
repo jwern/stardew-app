@@ -1,7 +1,26 @@
 <h1>Edit Item Info</h1>
 
 <%= render "form", model: @item %>
+<table>
+  <tr>
+    <th>Villager</th>
+    <th>Preference</th>
+  </tr>
+
+<% @preferences.order(:villager_id).each do |pref| %>
+  <tr>
+    <td><%= villager_name(pref.villager_id) %></td>
+    <td><%= pref.opinion %></td>
+    <td><%= button_to 'Delete', preference_path(pref),
+                                     method: :delete,
+                                     data: { confirm: "Really delete this preference?" } %></td>
+  </tr>
+<% end %>
+</table>
 
 <%= button_to 'Delete Item', item_path(@item),
                              method: :delete,
                              data: { confirm: "Really delete #{@item.name}?" } %>
+<br>
+<br>
+<%= link_to "#{@item.name} Page", @item %>

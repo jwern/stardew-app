@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @preferences = get_prefs
   end
 
   def update
@@ -52,16 +53,16 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:name, :category, :sale_price)
     end
 
-    def find_villager_names(villagers)
-      Villager.find(villagers.villager_id).name
-    end
-
     def get_prefs
-      Preference.select { |prefs| prefs.item_id == @item.id }
+      Preference.where(item_id: @item.id)
     end
 
     def get_opinions(pref)
       @preferences.select { |prefs| prefs.opinion == pref }
       .map { |like| Villager.find(like.villager_id) }
     end
+
+    #def find_villager_names(villagers)
+      #Villager.find(villagers.villager_id).name
+    #end
 end

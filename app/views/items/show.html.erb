@@ -7,8 +7,12 @@
 <h4>Sale Price:</h4>
 <%= @item.sale_price %><br>
 
-<%= render 'preferences' %>
-
+<%= render 'display_preferences' %>
+<br>
+<br>
+<br>
+<h4>Add Preferences</h4>
+<%= render "preferences/form", model: Preference.new, item_select: @item.id %><br>
 
 <p>
   <%= link_to 'Edit', edit_item_path(@item) %><br>

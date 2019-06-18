@@ -1,0 +1,22 @@
+<h2>Preferences:</h2>
+<b><%= link_to 'Add New Preference', new_preference_path %></b>
+<br>
+<br>
+<table>
+  <tr>
+    <th>Villager</th>
+    <th>Item</th>
+    <th>Preference</th>
+  </tr>
+
+  <% @preferences.order(:villager_id).each do |pref| %>
+    <tr>
+      <td><%= villager_name(pref.villager_id) %></td>
+      <td><%= item_name(pref.item_id) %></td>
+      <td><%= pref.opinion %></td>
+      <td><%= button_to 'Delete', preference_path(pref),
+                                       method: :delete,
+                                       data: { confirm: "Really delete?" } %></td>
+    </tr>
+  <% end %>
+</table>
