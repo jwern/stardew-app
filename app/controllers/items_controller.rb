@@ -4,7 +4,14 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    #@items = Item.all
+    if params[:search]
+      @items = Item.search(params[:search])
+    elsif params[:filter]
+      @items = Item.filter(params[:filter])
+    else
+      @items = Item.all
+    end
   end
 
   def create
@@ -50,7 +57,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :category, :sale_price)
+      params.require(:item).permit(:name, :category, :sale_price, :search, :filter)
     end
 
     def get_prefs
