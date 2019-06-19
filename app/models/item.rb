@@ -1,15 +1,18 @@
 class Item < ApplicationRecord
   has_many :preferences
   has_many :villagers, through: :preferences
-  
+
   CATEGORIES = [
     "Animal Products",
     "Artifacts",
-    "Crops",
+    "Artisan Goods",
+    "Cooked Dishes",
     "Fish",
-    "Furniture",
+    "Flowers",
+    "Fruit",
     "Minerals",
-    "Weapons"
+    "Trash",
+    "Vegetables"
   ]
 
   validates :name, { presence: true, uniqueness:
