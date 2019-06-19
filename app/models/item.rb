@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :preferences
+  has_many :preferences, dependent: :destroy
   has_many :villagers, through: :preferences
 
   CATEGORIES = [
