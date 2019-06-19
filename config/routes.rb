@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :preferences
   get 'application/index'
 
-  root 'villagers#index'
+  root 'application#index'
 end
