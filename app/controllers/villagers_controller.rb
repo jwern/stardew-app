@@ -57,7 +57,7 @@ class VillagersController < ApplicationController
 
   private
     def villager_params
-      params.require(:villager).permit(:name, :birth_day, :birth_season, :search, :filter)
+      params.require(:villager).permit(:name, :birth_day, :birth_season, :extra_info, :search, :filter)
     end
 
     def get_prefs

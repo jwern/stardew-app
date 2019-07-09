@@ -2,14 +2,14 @@
 <b><%= link_to 'Add New Villager', new_villager_path %></b>
 <br>
 <br>
-<b>Search By Name:</b><%= form_tag(villagers_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag 'Search', name:nil %>
+<b>Search By Name:</b><%= form_with url: villagers_path, method: :get, local: true do |form| %>
+  <%= form.text_field :search, value: params[:search] %>
+  <%= form.submit 'Search', name:nil %>
 <% end %>
 <br>
-<b>Filter By Birth Season:</b><%= form_tag(villagers_path, method: :get) do %>
-  <%= select_tag :filter, options_for_select(Villager::BIRTH_SEASONS, selected: params[:filter]) %>
-  <%= submit_tag 'Filter', name:nil %>
+<b>Filter By Birth Season:</b><%= form_with url: villagers_path, method: :get, local: true do |form| %>
+  <%= form.select :filter, Villager::BIRTH_SEASONS, selected: params[:filter] %>
+  <%= form.submit 'Filter', name:nil %>
 <% end %>
 <table>
   <tr>

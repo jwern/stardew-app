@@ -11,6 +11,10 @@
     <%= form.label :birth_day, "Birth Day" %>
     <%= form.select :birth_day, Villager::BIRTH_DAYS %>
   </p>
+  <p>
+    <%= form.label :extra_info %><br>
+    <%= form.text_area :extra_info, size: "25x5" %>
+  </p>
 
   <p>
     <%= form.submit %><br>

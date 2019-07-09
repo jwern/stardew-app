@@ -24,3 +24,7 @@
 .footer {
   font-weight: 100;
 }
+
+.additional_info {
+  white-space: pre-line;
+}

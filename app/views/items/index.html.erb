@@ -2,14 +2,14 @@
 <b><%= link_to 'Add New Item', new_item_path %></b>
 <br>
 <br>
-<b>Search By Name:</b><%= form_tag(items_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag 'Search', name:nil %>
+<b>Search By Name:</b><%= form_with url: items_path, method: :get, local: true do |form| %>
+  <%= form.text_field :search, value: params[:search] %>
+  <%= form.submit 'Search', name:nil %>
 <% end %>
 <br>
-<b>Filter By Category:</b><%= form_tag(items_path, method: :get) do %>
-  <%= select_tag :filter, options_for_select(Item::CATEGORIES, selected: params[:filter]) %>
-  <%= submit_tag 'Filter', name:nil %>
+<b>Filter By Category:</b><%= form_with url: items_path, method: :get, local: true do |form| %>
+  <%= form.select :filter, Item::CATEGORIES, selected: params[:filter] %>
+  <%= form.submit 'Filter', name:nil %>
 <% end %>
 <br>
 <br>

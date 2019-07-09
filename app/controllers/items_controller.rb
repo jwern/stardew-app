@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :category, :sale_price, :search, :filter)
+      params.require(:item).permit(:name, :category, :sale_price, :extra_info, :search, :filter)
     end
 
     def get_prefs
