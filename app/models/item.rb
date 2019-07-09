@@ -1,16 +1,18 @@
 class Item < ApplicationRecord
+  extend Sorter
   has_many :preferences, dependent: :destroy
   has_many :villagers, through: :preferences
 
-  def self.search(search)
-      #item = Item.find_by(name: search.titleize)
-      #item ? self.where(name:search.titleize) : Item.all
-    where('name ILIKE ?', "%#{search}%")
-  end
+  ## Search and Filter have been moved to the sorter.rb concern / module
+  # def self.search(search)
+  #     #item = Item.find_by(name: search.titleize)
+  #     #item ? self.where(name:search.titleize) : Item.all
+  #   where('name ILIKE ?', "%#{search}%")
+  # end
 
-  def self.filter(filter)
-    where(category: filter)
-  end
+  # def self.filter(filter)
+  #   where(category: filter)
+  # end
 
   CATEGORIES = [
     "Animal Products",

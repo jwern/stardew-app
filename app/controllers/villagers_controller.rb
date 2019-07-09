@@ -4,7 +4,14 @@ class VillagersController < ApplicationController
   end
 
   def index
-    @villagers = Villager.all
+    #@villagers = Villager.all
+    if params[:search]
+      @villagers = Villager.search(params[:search])
+    elsif params[:filter]
+      @villagers = Villager.filter(:birth_season, params[:filter])
+    else
+      @villagers = Villager.all
+    end
   end
 
   def create
@@ -50,7 +57,7 @@ class VillagersController < ApplicationController
 
   private
     def villager_params
-      params.require(:villager).permit(:name, :birth_day, :birth_season)
+      params.require(:villager).permit(:name, :birth_day, :birth_season, :search, :filter)
     end
 
     def get_prefs

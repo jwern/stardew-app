@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     if params[:search]
       @items = Item.search(params[:search])
     elsif params[:filter]
-      @items = Item.filter(params[:filter])
+      @items = Item.filter(:category, params[:filter])
     else
       @items = Item.all
     end

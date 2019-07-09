@@ -2,6 +2,15 @@
 <b><%= link_to 'Add New Villager', new_villager_path %></b>
 <br>
 <br>
+<b>Search By Name:</b><%= form_tag(villagers_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag 'Search', name:nil %>
+<% end %>
+<br>
+<b>Filter By Birth Season:</b><%= form_tag(villagers_path, method: :get) do %>
+  <%= select_tag :filter, options_for_select(Villager::BIRTH_SEASONS, selected: params[:filter]) %>
+  <%= submit_tag 'Filter', name:nil %>
+<% end %>
 <table>
   <tr>
     <th></th>
