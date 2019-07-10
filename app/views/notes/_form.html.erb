@@ -1,0 +1,16 @@
+<%= form_with model: model, local: true do |form| %>
+  <p>
+    <%= form.label :info_type %><br>
+    <%= form.text_field :info_type %>
+  </p>
+  <p>
+    <%= form.label :additional_info %><br>
+    <%= form.text_area :additional_info, size: "30x10" %>
+  </p>
+
+  <p>
+    <%= form.submit %><br>
+    <br>
+  </p>
+
+<% end %>

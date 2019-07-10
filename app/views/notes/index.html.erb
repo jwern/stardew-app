@@ -1,0 +1,18 @@
+<h3>Stardew Valley App</h3>
+<b><%= link_to 'Add New Note', new_note_path %></b>
+<br>
+<br>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Info</th>
+  </tr>
+
+  <% @notes.order(:info_type).each do |note| %>
+    <tr>
+      <td><%= sanitize(note.info_type) %></td>
+      <td><%= sanitize(note.additional_info) %></td>
+      <td><%= link_to 'Edit', edit_note_path(note) %></td>
+    </tr>
+  <% end %>
+</table>
