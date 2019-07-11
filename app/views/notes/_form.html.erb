@@ -1,7 +1,7 @@
 <%= form_with model: model, local: true do |form| %>
   <p>
     <%= form.label :info_type %><br>
-    <%= form.text_field :info_type %>
+    <%= form.select :info_type, Note::NOTE_TYPES %>
   </p>
   <p>
     <%= form.label :additional_info %><br>
