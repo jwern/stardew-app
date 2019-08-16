@@ -1,33 +1,36 @@
-<h2>Items List</h2>
-<b><%= link_to 'Add New Item', new_item_path %></b>
+<div class="center-it"><h1>Items List</h1>
+<%= link_to 'Add New Item', new_item_path, class: "add-new-link" %>
 <br>
 <br>
-<b>Search By Name:</b><%= form_with url: items_path, method: :get, local: true do |form| %>
-  <%= form.text_field :search, value: params[:search] %>
+<span class="search-header">Search By Name:</span><%= form_with url: items_path, method: :get, local: true do |form| %>
+  <%= form.text_field :search, value: params[:search], class: "search-style" %>
   <%= form.submit 'Search', name:nil %>
 <% end %>
 <br>
-<b>Filter By Category:</b><%= form_with url: items_path, method: :get, local: true do |form| %>
+<span class="filter-header">Filter By Category:</span><%= form_with url: items_path, method: :get, local: true do |form| %>
   <%= form.select :filter, Item::CATEGORIES, selected: params[:filter] %>
   <%= form.submit 'Filter', name:nil %>
 <% end %>
 <br>
-<br>
 <table>
-  <tr>
-    <th></th>
-    <th>Item</th>
-    <th>Category</th>
-    <th>Sale Price</th>
-  </tr>
-
-  <% @items.order(:name).each do |item| %>
+  <thead>
     <tr>
-      <td><%= item_pic(item.name) %></td>
-      <td><%= item.name %></td>
-      <td><%= item.category %></td>
-      <td><%= item.sale_price %></td>
-      <td><%= link_to 'Item Page', item_path(item) %></td>
+      <th class="header", colspan="2", scope="col">Item</th>
+      <th class="header", scope="col">Category</th>
+      <th class="header", scope="col">Sale Price</th>
+      <th></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @items.order(:name).each do |item| %>
+      <tr>
+        <td><%= item_pic(item.name) %></td>
+        <td><%= item.name %></td>
+        <td><%= item.category %></td>
+        <td><%= item.sale_price %></td>
+        <td><%= link_to 'Item Page', item_path(item), class: "item-page-link" %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+</div>

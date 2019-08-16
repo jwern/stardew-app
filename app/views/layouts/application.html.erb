@@ -11,15 +11,12 @@
 
   <body>
     <%= yield %>
-    <div class="footer"><footer>
-      <br>
-      <%= link_to 'Villagers Index', villagers_path %><br>
-      <br>
-      <%= link_to 'Items Index', items_path %><br>
-      <br>
-      <%= link_to 'Preferences Index', preferences_path %><br>
-      <br>
-      <%= link_to 'Home', notes_path %><br>
+    <div class="app-footer"><footer>
+    <br>
+      <%= link_to 'Villagers Index', villagers_path, class: "footer-link" %>
+      <%= link_to 'Items Index', items_path, class: "footer-link" %>
+      <%= link_to 'Preferences Index', preferences_path, class: "footer-link" %>
+      <%= link_to 'Home', notes_path, class: "footer-link" %><br>
     </footer></div>
   </body>
 </html>

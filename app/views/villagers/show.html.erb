@@ -1,4 +1,4 @@
-<h2><%= @villager.name %></h2>
+<h1><%= @villager.name %></h1>
 
 <%= headshot(@villager.name) %>
 <br>
@@ -10,12 +10,12 @@
 <br>
 
 <h4>Additional Info</h4>
-<i><div class="additional_info"><%= sanitize(@villager.extra_info) %></i></div><br>
+<i><div class="additional-info"><%= sanitize(@villager.extra_info) %></i></div><br>
 <br>
 <br>
 <h4>Add Preferences</h4>
 <%= render "preferences/form", model: Preference.new, villager_select: @villager.id %><br>
 
 <p>
-  <%= link_to 'Edit Villager', edit_villager_path(@villager) %><br>
+  <%= link_to 'Edit Villager', edit_villager_path(@villager), class: "edit-villager-link" %><br>
 </p>

@@ -1,29 +1,34 @@
-<h2>Villagers List</h2>
-<b><%= link_to 'Add New Villager', new_villager_path %></b>
+<div class="center-it"><h1>Villagers List</h1>
+<%= link_to 'Add New Villager', new_villager_path, class: "add-new-link" %>
 <br>
 <br>
-<b>Search By Name:</b><%= form_with url: villagers_path, method: :get, local: true do |form| %>
-  <%= form.text_field :search, value: params[:search] %>
+<span class="search-header">Search By Name:</span><%= form_with url: villagers_path, method: :get, local: true do |form| %>
+  <%= form.text_field :search, value: params[:search], class: "search-style" %>
   <%= form.submit 'Search', name:nil %>
 <% end %>
 <br>
-<b>Filter By Birth Season:</b><%= form_with url: villagers_path, method: :get, local: true do |form| %>
+<span class="filter-header">Filter By Birth Season:</span><%= form_with url: villagers_path, method: :get, local: true do |form| %>
   <%= form.select :filter, Villager::BIRTH_SEASONS, selected: params[:filter] %>
   <%= form.submit 'Filter', name:nil %>
 <% end %>
+<br>
 <table>
-  <tr>
-    <th></th>
-    <th>Villager</th>
-    <th>Birthday</th>
-  </tr>
-
-  <% @villagers.order(:name).each do |villager| %>
+  <thead>
     <tr>
-      <td><%= headshot(villager.name) %></td>
-      <td><%= villager.name %></td>
-      <td><%= "#{villager.birth_season} #{villager.birth_day}" %></td>
-      <td><%= link_to 'Profile', villager_path(villager) %></td>
+      <th class="header", colspan="2", scope="col">Villager</th>
+      <th class="header", scope="col">Birthday</th>
+      <th></th>
     </tr>
+  </thead>
+  <tbody>
+    <% @villagers.order(:name).each do |villager| %>
+      <tr>
+        <td><%= headshot(villager.name) %></td>
+        <td><%= villager.name %></td>
+        <td><%= "#{villager.birth_season} #{villager.birth_day}" %></td>
+        <td><%= link_to 'Profile', villager_path(villager), class: "villager-profile-link" %></td>
+      </tr>
+    </tbody>
   <% end %>
 </table>
+</div>

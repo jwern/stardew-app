@@ -27,4 +27,9 @@
 .headshot {
   max-height: 100px;
   max-width: 80px;
+  border-width: 2px;
+  border-right-style: dotted;
+  border-bottom-style: dotted;
+  border-right-color: rgb(90, 158, 212);
+  border-bottom-color: rgb(90, 158, 212);
 }

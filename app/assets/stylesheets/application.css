@@ -13,18 +13,112 @@
  *= require_tree .
  *= require_self
  */
-
-.error_explanation {
+body,
+select,
+form input,
+.search-style {
+  font-family: Calibri;
 }
 
-#error_message {
-  color: red;
+select,
+form input {
+  font-size: 16px;
 }
 
-.footer {
-  font-weight: 100;
+body {
+  max-width: 1200px;
 }
 
-.additional_info {
+td {
+  font-size: 18px;
+}
+
+/* table {
+  margin: 0 auto;
+} */
+
+.center-it {
+  margin: 0 auto;
+  width: 600px;
+}
+
+th.header {
+  background-color: rgba(90, 158, 212, 0.5);
+  border-radius: 5px;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* td {
+  Assigning min-width here will prevent the weird overlap issue
+  but it doesn't make the content flexible.
+  min-width: 200px;
+} */
+
+/* All links will be a slightly darker tomato color */
+.add-new-link,
+.villager-profile-link,
+.edit-villager-link,
+.item-page-link,
+.edit-item-link,
+.edit-note-link {
+  background-color: rgb(255, 74, 43);
+  border-radius: 4px;
+  padding: 6px 10px;
+  text-decoration-line: none;
+  color: white;
+  font-size: 18px;
+}
+
+.add-new-link {
+  font-weight: bold;
+}
+
+.footer-link {
+  background-color: rgba(255, 74, 43, 0.50);
+  /* font-weight: 50; */
+  margin: 0 20px;
+  padding: 6px 10px;
+  width: 300px;
+  /* border-style: dotted; */
+  border-radius: 4px;
+  /* border-color: rgba(255, 74, 43, 0.50);
+  border-width: 2px; */
+  color: white;
+  font-size: 16px;
+  text-decoration-line: none;
+}
+
+.additional-info {
   white-space: pre-line;
+}
+
+.filter-header,
+.search-header {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.error-explanation {
+  color: rgb(153, 153, 153);
+  font-style: italic;
+}
+
+.app-footer {
+  background-color: rgba(90, 158, 212, 0.50);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  height: 75px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
 }

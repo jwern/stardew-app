@@ -2,12 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#sale_price_box {
+.sale_price_box {
 }
 
 .item_label {
   font-size: 20px;
   text-decoration: underline;
+}
+
+.item-pic {
+  max-height: 100px;
+  max-width: 80px;
+  border-width: 2px;
+  border-bottom-style: dotted;
+  border-left-style: dotted;
+  border-bottom-color: rgb(90, 158, 212);
+  border-left-color: rgb(90, 158, 212);
+  // padding-left: 4px;
+  // padding-bottom: 4px;
 }
 
 table {

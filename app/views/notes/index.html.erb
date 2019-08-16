@@ -1,19 +1,25 @@
-<h3>Stardew Valley App - Notes</h3>
-<b><%= link_to 'Add New Note', new_note_path %></b>
+<div class="center-it"><h1>Stardew Valley App - Notes</h1>
+<%= link_to 'Add New Note', new_note_path, class: "add-new-link" %>
 <br>
 <br>
 <table>
-<% @notes.each do |type, note| %>
-  <% unless @notes[type].empty? %>
-    <tr>
-    <th><%= type %></th>
-    </tr>
-  <% end %>
-  <% note.each do |info| %>
-    <tr>
-      <td><%= info.additional_info %></td>
-      <td><%= link_to 'Edit', edit_note_path(info) %></td>
-    </tr>
-  <% end %>
-<% end %>
+  <thead>
+    <% @notes.each do |type, note| %>
+      <% unless @notes[type].empty? %>
+        <tr>
+          <th class="header", scope="col"><%= type %></th>
+          <th></th>
+        </tr>
+      <% end %>
+    </thead>
+    <tbody>
+      <% note.each do |info| %>
+        <tr>
+          <td><%= sanitize(info.additional_info) %></td>
+          <td><%= link_to 'Edit', edit_note_path(info), class: "edit-note-link" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
 </table>
+</div>

@@ -1,4 +1,4 @@
-<h2><%= @item.name %></h2>
+<h1><%= @item.name %></h1>
 
 <%= item_pic(@item.name) %>
 <br>
@@ -11,7 +11,7 @@
 <br>
 
 <h4>Additional Info</h4>
-<i><div class="additional_info"><%= sanitize(@item.extra_info) %></i></div><br>
+<i><div class="additional-info"><%= sanitize(@item.extra_info) %></i></div><br>
 <br>
 <br>
 <br>
@@ -20,5 +20,5 @@
 <%= render "preferences/form", model: Preference.new, item_select: @item.id %><br>
 
 <p>
-  <%= link_to 'Edit', edit_item_path(@item) %><br>
+  <%= link_to 'Edit', edit_item_path(@item), class: "edit-item-link" %><br>
 </p>
