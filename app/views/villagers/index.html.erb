@@ -1,34 +1,36 @@
-<div class="center-it"><h1>Villagers List</h1>
-<%= link_to 'Add New Villager', new_villager_path, class: "add-new-link" %>
-<br>
-<br>
-<span class="search-header">Search By Name:</span><%= form_with url: villagers_path, method: :get, local: true do |form| %>
-  <%= form.text_field :search, value: params[:search], class: "search-style" %>
-  <%= form.submit 'Search', name:nil %>
-<% end %>
-<br>
-<span class="filter-header">Filter By Birth Season:</span><%= form_with url: villagers_path, method: :get, local: true do |form| %>
-  <%= form.select :filter, Villager::BIRTH_SEASONS, selected: params[:filter] %>
-  <%= form.submit 'Filter', name:nil %>
-<% end %>
-<br>
-<table>
-  <thead>
-    <tr>
-      <th class="header", colspan="2", scope="col">Villager</th>
-      <th class="header", scope="col">Birthday</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @villagers.order(:name).each do |villager| %>
-      <tr>
-        <td><%= headshot(villager.name) %></td>
-        <td><%= villager.name %></td>
-        <td><%= "#{villager.birth_season} #{villager.birth_day}" %></td>
-        <td><%= link_to 'Profile', villager_path(villager), class: "villager-profile-link" %></td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
+<div class="full-page">
+  <div class="center-it inner-page">
+    <h1 class="page-title">Villagers List</h1>
+    <%= link_to 'Add New Villager', new_villager_path, class: "add-new-link" %>
+    <div class="search-filter">
+      <div class="search-header">Search By Name:<%= form_with url: villagers_path, method: :get, local: true do |form| %>
+        <%= form.text_field :search, value: params[:search], class: "search-style" %>
+        <%= form.submit 'Search', name:nil %>
+      <% end %></div>
+      <div class="filter-header">Filter By Birth Season:<%= form_with url: villagers_path, method: :get, local: true do |form| %>
+        <%= form.select :filter, Villager::BIRTH_SEASONS, selected: params[:filter] %>
+        <%= form.submit 'Filter', name:nil %>
+      <% end %>
+      </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="header", colspan="2", scope="col">Villager</th>
+            <th class="header", scope="col">Birthday</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @villagers.order(:name).each do |villager| %>
+            <tr>
+              <td><%= headshot(villager.name) %></td>
+              <td><%= villager.name %></td>
+              <td><%= "#{villager.birth_season} #{villager.birth_day}" %></td>
+              <td><%= link_to 'Profile', villager_path(villager), class: "villager-profile-link" %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
 </div>

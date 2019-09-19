@@ -1,27 +1,30 @@
-<div class="center-it"><h1>Preferences:</h1>
-<%= link_to 'Add New Preference', new_preference_path, class: "add-new-link" %>
-<br>
-<br>
-<table>
-  <thead>
-    <tr>
-      <th class="header", scope="col">Villager</th>
-      <th class="header", scope="col">Item</th>
-      <th class="header", scope="col">Preference</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @preferences.order(:villager_id).each do |pref| %>
-      <tr>
-        <td><%= villager_name(pref.villager_id) %></td>
-        <td><%= item_name(pref.item_id) %></td>
-        <td><%= pref.opinion %></td>
-        <td><%= button_to 'Delete', preference_path(pref),
-                                         method: :delete,
-                                         data: { confirm: "Really delete?" } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="full-page">
+  <div class="center-it inner-page">
+    <h1 class="page-title">Preferences:</h1>
+    <%= link_to 'Add New Preference', new_preference_path, class: "add-new-link" %>
+    <br>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <th class="header", scope="col">Villager</th>
+          <th class="header", scope="col">Item</th>
+          <th class="header", scope="col">Preference</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @preferences.order(:villager_id).each do |pref| %>
+          <tr>
+            <td><%= villager_name(pref.villager_id) %></td>
+            <td><%= item_name(pref.item_id) %></td>
+            <td><%= pref.opinion %></td>
+            <td><%= button_to 'Delete', preference_path(pref), class: "pref-delete-link",
+                                             method: :delete,
+                                             data: { confirm: "Really delete?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
