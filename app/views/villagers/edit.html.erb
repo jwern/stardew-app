@@ -1,25 +1,29 @@
-<h1>Edit Villager Info</h1>
+<div class="full-page">
+  <div class="center-it inner-page">
+    <h1>Edit Villager Info</h1>
 
-<%= render "form", model: @villager  %>
-<table>
-  <tr>
-    <th>Item</th>
-    <th>Preference</th>
-  </tr>
+    <%= render "form", model: @villager  %>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Preference</th>
+      </tr>
 
-<% @preferences.each do |pref| %>
-  <tr>
-    <td><%= item_name(pref.item_id) %></td>
-    <td><%= pref.opinion %></td>
-    <td><%= button_to 'Delete', preference_path(pref), class: "button delete-preference-button",
+    <% @preferences.each do |pref| %>
+      <tr>
+        <td><%= item_name(pref.item_id) %></td>
+        <td><%= pref.opinion %></td>
+        <td><%= button_to 'Delete', preference_path(pref), class: "button delete-preference-button",
+                                         method: :delete,
+                                         data: { confirm: "Really delete this preference?" } %></td>
+      </tr>
+    <% end %>
+    </table>
+    <%= button_to 'Delete Villager', villager_path(@villager), class: "button delete-villager-button",
                                      method: :delete,
-                                     data: { confirm: "Really delete this preference?" } %></td>
-  </tr>
-<% end %>
-</table>
-<%= button_to 'Delete Villager', villager_path(@villager), class: "button delete-villager-button",
-                                 method: :delete,
-                                 data: { confirm: "Really delete #{@villager.name}?" } %>
-<br>
-<br>
-<%= link_to "#{@villager.name}'s Page", @villager, class: "button villager-profile-link" %>
+                                     data: { confirm: "Really delete #{@villager.name}?" } %>
+    <br>
+    <br>
+    <%= link_to "#{@villager.name}'s Page", @villager, class: "button villager-profile-link" %>
+  </div>
+</div>

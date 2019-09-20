@@ -7,7 +7,7 @@
         <%= form.text_field :search, value: params[:search], class: "search-style" %>
         <%= form.submit 'Search', name:nil, class: "button search-button" %>
       <% end %></div>
-      <div class="filter-header">Filter By Birth Season:<%= form_with url: villagers_path, method: :get, local: true do |form| %>
+      <div class="filter-header filter-villagers">Filter By Birth Season:<%= form_with url: villagers_path, method: :get, local: true do |form| %>
         <%= form.select :filter, Villager::BIRTH_SEASONS, selected: params[:filter] %>
         <%= form.submit 'Filter', name:nil, class: "button filter-button" %>
       <% end %>
