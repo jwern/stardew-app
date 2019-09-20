@@ -1,27 +1,24 @@
-<%= form_with model: model ||= Preference.new, villager_select: villager_select ||= nil, item_select: item_select ||= nil, local: true do |form| %>
-<%= render 'error_messages', model: model %>
-<p>
-  <% if villager_select != nil %>
-    <%= form.hidden_field :villager_id, value: villager_select %>
-  <% else %>
-    <%= form.label :villager %><br>
-    <%= form.collection_select :villager_id, Villager.order(:name).all, :id, :name, prompt: true %><br>
+<div class="create-preference-form">
+  <%= form_with model: model ||= Preference.new, villager_select: villager_select ||= nil, item_select: item_select ||= nil, local: true do |form| %>
+  <%= render 'error_messages', model: model %>
+    <% if villager_select != nil %>
+      <%= form.hidden_field :villager_id, value: villager_select %>
+    <% else %>
+      <span class="preference-type-label"><%= form.label :villager, "Villager:" %></span>
+      <%= form.collection_select :villager_id, Villager.order(:name).all, :id, :name, prompt: true %>
+    <% end %>
+    <% if item_select != nil %>
+      <%= form.hidden_field :item_id, value: item_select %>
+    <% else %>
+      <span class="preference-type-label"><%= form.label :item, "Item:" %></span>
+      <%= form.collection_select :item_id, Item.order(:name).all, :id, :name, prompt: true %>
+    <% end %>
+  <div class="create-preference-choices">
+      <%= form.radio_button :opinion, "Likes" %><%= form.label :opinion, "Likes", value: "Likes" %>
+      <%= form.radio_button :opinion, "Dislikes" %><%= form.label :opinion, "Dislikes", value: "Dislikes" %>
+  </div>
+  <div class="create-preference-button">
+      <%= form.submit class: "button create-preference-link" %>
+  </div>
   <% end %>
-  <% if item_select != nil %>
-    <%= form.hidden_field :item_id, value: item_select %>
-  <% else %>
-    <%= form.label :item %><br>
-    <%= form.collection_select :item_id, Item.order(:name).all, :id, :name, prompt: true %><br>
-  <% end %>
-
-  <%= form.radio_button :opinion, "Likes" %>
-  <%= form.label :opinion, "Likes" %>
-  <%= form.radio_button :opinion, "Dislikes" %>
-  <%= form.label :opinion, "Dislikes" %>
-
-</p>
-<p>
-  <%= form.submit %>
-</p>
-
-<% end %>
+</div>

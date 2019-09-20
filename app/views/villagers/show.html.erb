@@ -1,21 +1,30 @@
-<h1><%= @villager.name %></h1>
-
-<%= headshot(@villager.name) %>
-<br>
-<h4>Birth Date:</h4>
-<%= @villager.birth_season %>
-<%= @villager.birth_day %><br>
-
-<%= render 'display_preferences' %>
-<br>
-
-<h4>Additional Info</h4>
-<i><div class="additional-info"><%= sanitize(@villager.extra_info) %></i></div><br>
-<br>
-<br>
-<h4>Add Preferences</h4>
-<%= render "preferences/form", model: Preference.new, villager_select: @villager.id %><br>
-
-<p>
-  <%= link_to 'Edit Villager', edit_villager_path(@villager), class: "edit-villager-link" %><br>
-</p>
+<div class="full-page">
+  <div class="center-it inner-page">
+    <div class="individual-page-title">
+      <h1><%= @villager.name %></h1>
+      <%= headshot(@villager.name) %>
+    </div>
+    <table>
+      <tr>
+        <th class="header", scope="col">Birth Date</th>
+        <td><%= @villager.birth_season %> <%= @villager.birth_day %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Preferences</th>
+        <td><%= render 'display_preferences' %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Add Preference</th>
+        <td><%= render "preferences/form", model: Preference.new, villager_select: @villager.id %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Additional Info</th>
+        <td class="additional-info"><%= sanitize(@villager.extra_info) %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Updates?</th>
+        <td><%= link_to 'Edit Villager', edit_villager_path(@villager), class: "button edit-villager-link" %></td>
+      </tr>
+    </table>
+  </div>
+</div>

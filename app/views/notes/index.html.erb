@@ -1,7 +1,7 @@
 <div class="full-page">
   <div class="center-it inner-page">
     <h1 class="page-title">Notes</h1>
-    <%= link_to 'Add New Note', new_note_path, class: "add-new-link" %>
+    <%= link_to 'Add New Note', new_note_path, class: "button add-new-link" %>
   <table>
     <thead>
       <% @notes.each do |type, note| %>
@@ -15,8 +15,8 @@
       <tbody>
         <% note.each do |info| %>
           <tr>
-            <td><%= sanitize(info.additional_info) %></td>
-            <td><%= link_to 'Edit', edit_note_path(info), class: "edit-note-link" %></td>
+            <td class="additional-info"><%= sanitize(info.additional_info) %></td>
+            <td><%= link_to 'Edit', edit_note_path(info), class: "button edit-note-link" %></td>
           </tr>
         <% end %>
       <% end %>

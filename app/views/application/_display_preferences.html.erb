@@ -1,7 +1,6 @@
-<h4>Preferences:</h4>
-Likes:
-<%= comma_link_list(@likes) %>
-<br>
-<br>
-Dislikes:
-<%= comma_link_list(@dislikes) %>
+<div class="show-likes">
+  Likes: <%= comma_link_list(@likes) %>
+</div>
+<div class="show-dislikes">
+  Dislikes: <%= comma_link_list(@dislikes) %>
+</div>

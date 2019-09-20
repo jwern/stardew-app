@@ -11,15 +11,15 @@
   <tr>
     <td><%= item_name(pref.item_id) %></td>
     <td><%= pref.opinion %></td>
-    <td><%= button_to 'Delete', preference_path(pref),
+    <td><%= button_to 'Delete', preference_path(pref), class: "button delete-preference-button",
                                      method: :delete,
                                      data: { confirm: "Really delete this preference?" } %></td>
   </tr>
 <% end %>
 </table>
-<%= button_to 'Delete Villager', villager_path(@villager),
+<%= button_to 'Delete Villager', villager_path(@villager), class: "button delete-villager-button",
                                  method: :delete,
                                  data: { confirm: "Really delete #{@villager.name}?" } %>
 <br>
 <br>
-<%= link_to "#{@villager.name}'s Page", @villager, class: "villager-profile-link" %>
+<%= link_to "#{@villager.name}'s Page", @villager, class: "button villager-profile-link" %>

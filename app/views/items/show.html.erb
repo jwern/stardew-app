@@ -1,24 +1,34 @@
-<h1><%= @item.name %></h1>
-
-<%= item_pic(@item.name) %>
-<br>
-<h4>Category:</h4>
-<%= @item.category %><br>
-<h4>Sale Price:</h4>
-<%= @item.sale_price %><br>
-
-<%= render 'display_preferences' %>
-<br>
-
-<h4>Additional Info</h4>
-<i><div class="additional-info"><%= sanitize(@item.extra_info) %></i></div><br>
-<br>
-<br>
-<br>
-<br>
-<h4>Add Preferences</h4>
-<%= render "preferences/form", model: Preference.new, item_select: @item.id %><br>
-
-<p>
-  <%= link_to 'Edit', edit_item_path(@item), class: "edit-item-link" %><br>
-</p>
+<div class="full-page">
+  <div class="center-it inner-page">
+    <div class="individual-page-title">
+      <h1><%= @item.name %></h1>
+      <%= item_pic(@item.name) %>
+    </div>
+    <table>
+      <tr>
+        <th class="header", scope="col">Category</th>
+        <td><%= @item.category %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Sale Price</th>
+        <td><%= @item.sale_price %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Preferences</th>
+        <td><%= render 'display_preferences' %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Add Preference</th>
+        <td><%= render "preferences/form", model: Preference.new, item_select: @item.id %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Additional Info</th>
+        <td class="additional-info"><%= sanitize(@item.extra_info) %></td>
+      </tr>
+      <tr>
+        <th class="header", scope="col">Updates?</th>
+        <td><%= link_to 'Edit Item', edit_item_path(@item), class: "button edit-item-link" %></td>
+      </tr>
+    </table>
+  </div>
+</div>
