@@ -1,23 +1,22 @@
 <%= form_with model: model, local: true do |form| %>
 <%= render 'error_messages', model: model %>
-  <p>
+  <div class="form-input">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
-  </p>
-  <p>
+  </div>
+  <div class="form-input">
     <%= form.label :birth_season, "Birth Season" %>
     <%= form.select :birth_season, Villager::BIRTH_SEASONS %>
     <br>
     <%= form.label :birth_day, "Birth Day" %>
     <%= form.select :birth_day, Villager::BIRTH_DAYS %>
-  </p>
-  <p>
+  </div>
+  <div class="form-input">
     <%= form.label :extra_info %><br>
     <%= form.text_area :extra_info, size: "25x5" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-input">
     <%= form.submit class: "button create-villager-link" %><br>
-    <br>
-  </p>
+  </div>
 <% end %>
