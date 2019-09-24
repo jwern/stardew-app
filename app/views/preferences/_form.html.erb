@@ -1,23 +1,27 @@
 <div class="create-preference-form">
   <%= form_with model: model ||= Preference.new, villager_select: villager_select ||= nil, item_select: item_select ||= nil, local: true do |form| %>
   <%= render 'error_messages', model: model %>
+  <div class="form-input-element">
     <% if villager_select != nil %>
       <%= form.hidden_field :villager_id, value: villager_select %>
     <% else %>
-      <span class="preference-type-label"><%= form.label :villager, "Villager:" %></span>
-      <%= form.collection_select :villager_id, Villager.order(:name).all, :id, :name, prompt: true %>
+      <%= form.label :villager, "Villager:", class: "preference-type-label" %><br>
+      <%= form.collection_select :villager_id, Villager.order(:name).all, :id, :name, prompt: true, class: "preference-type-label" %>
     <% end %>
+  </div>
+  <div class="form-input-element">
     <% if item_select != nil %>
       <%= form.hidden_field :item_id, value: item_select %>
     <% else %>
-      <span class="preference-type-label"><%= form.label :item, "Item:" %></span>
-      <%= form.collection_select :item_id, Item.order(:name).all, :id, :name, prompt: true %>
+      <%= form.label :item, "Item:", class: "preference-type-label" %><br>
+      <%= form.collection_select :item_id, Item.order(:name).all, :id, :name, prompt: true, class: "preference-type-label" %>
     <% end %>
-  <div class="create-preference-choices">
+  </div>
+  <div class="form-input-element create-preference-choices">
       <%= form.radio_button :opinion, "Likes" %><%= form.label :opinion, "Likes", value: "Likes" %>
       <%= form.radio_button :opinion, "Dislikes" %><%= form.label :opinion, "Dislikes", value: "Dislikes" %>
   </div>
-  <div class="create-preference-button">
+  <div class="form-input-element create-preference-button">
       <%= form.submit class: "button create-preference-link" %>
   </div>
   <% end %>

@@ -1,7 +1,9 @@
 <div class="full-page">
   <div class="center-it inner-page">
-    <h1 class="page-title">Items List</h1>
-    <%= link_to 'Add New Item', new_item_path, class: "button add-new-link" %>
+    <div class="page-header-title-button">
+      <h1 class="page-title">Items List</h1>
+      <%= link_to 'Add New Item', new_item_path, class: "button add-new-link" %>
+    </div>
     <div class="search-filter">
       <div class="search-header">Search By Name:<%= form_with url: items_path, method: :get, local: true do |form| %>
         <%= form.text_field :search, value: params[:search], class: "search-style" %>

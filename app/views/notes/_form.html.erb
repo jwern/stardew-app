@@ -1,16 +1,16 @@
 <%= form_with model: model, local: true do |form| %>
-  <p>
+  <div class="form-input-element">
     <%= form.label :info_type %><br>
     <%= form.select :info_type, Note::NOTE_TYPES %>
-  </p>
-  <p>
+  </div>
+  <div class="form-input-element">
     <%= form.label :additional_info %><br>
     <%= form.text_area :additional_info, size: "30x10" %>
-  </p>
+  </div>
 
-  <p>
+  <div class="form-input-element">
     <%= form.submit class: "button create-note-link" %><br>
     <br>
-  </p>
+  </div>
 
 <% end %>

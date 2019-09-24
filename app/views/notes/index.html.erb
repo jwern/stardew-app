@@ -1,7 +1,9 @@
 <div class="full-page">
   <div class="center-it inner-page">
-    <h1 class="page-title">Notes</h1>
-    <%= link_to 'Add New Note', new_note_path, class: "button add-new-link" %>
+    <div class="page-header-title-button">
+      <h1 class="page-title">Notes</h1>
+      <%= link_to 'Add New Note', new_note_path, class: "button add-new-link" %>
+    </div>
   <table>
     <thead>
       <% @notes.each do |type, note| %>

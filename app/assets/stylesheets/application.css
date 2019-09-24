@@ -25,9 +25,15 @@ form input {
   font-size: 16px;
 }
 
-/* form {
-  display: flex;
-} */
+select,
+textarea,
+form input[type=text] {
+  width: 150px;
+}
+
+form {
+  /* display: flex; */
+}
 
 body {
   min-width: 700px;
@@ -41,6 +47,7 @@ td {
 
 table {
   padding: 10px;
+  margin: auto;
 }
 
 /* tbody {
@@ -93,7 +100,7 @@ th.header {
   border-radius: 4px;
   border-style: none;
   padding: 6px 10px;
-  text-decoration-line: none;
+  text-decoration: none;
   color: white;
   font-size: 18px;
   margin: 0 10px;
@@ -101,7 +108,7 @@ th.header {
   white-space: nowrap;
 }
 
-.form-input {
+.form-input-element {
   margin: 20px 10px;
 }
 
@@ -116,12 +123,18 @@ th.header {
   width: 50%;
 }
 
+.page-header-title-button { /*This is centering the page title and "add new" buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .individual-page-title {
   padding-left: 15px;
 }
 
 .add-new-link {
-  display: inline-block;
+  /* display: inline-block; */
   font-weight: bold;
 }
 
@@ -133,9 +146,9 @@ th.header {
   padding: 10px 0;
 }
 
-.preference-type-label {
+/* .preference-type-label {
   padding: 0 5px;
-}
+} */
 
 .show-likes,
 .show-dislikes {
@@ -150,7 +163,7 @@ th.header {
   border-radius: 4px;
   color: white;
   font-size: 18px;
-  text-decoration-line: none;
+  text-decoration: none;
 }
 
 .additional-info {
@@ -166,7 +179,9 @@ th.header {
 }
 
 .search-filter {
-  flex: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* .search-header {
@@ -177,10 +192,10 @@ th.header {
   width: 40%;
   margin-left: 30px;
 } */
-
+/*
 .filter-header select {
   width: 50%;
-}
+} */
 
 .search-button,
 .filter-button {

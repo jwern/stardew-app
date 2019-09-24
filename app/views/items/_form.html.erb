@@ -1,22 +1,22 @@
 <%= form_with model: model, local: true do |form| %>
 <%= render 'error_messages', model: model %>
-  <p>
+  <div class="form-input-element">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
-  </p>
-  <p>
+  </div>
+  <div class="form-input-element">
     <%= form.label :category %><br>
     <%= form.select :category, Item::CATEGORIES %><br>
-    <div id="sale_price_box">
+  </div>
+  <div class="form-input-element">
       <%= form.label :sale_price %><br>
       <%= form.text_field :sale_price %>
-    </div>
-  </p>
-  <p>
+  </div>
+  <div class="form-input-element">
     <%= form.label :extra_info %><br>
     <%= form.text_area :extra_info, size: "20x5" %>
-  </p>
-  <p>
+  </div>
+  <div class="form-input-element">
     <%= form.submit class: "button create-item-link" %>
-  </p>
+  </div>
   <% end %>
