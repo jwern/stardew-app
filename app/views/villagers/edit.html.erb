@@ -3,22 +3,23 @@
     <h1>Edit Villager Info</h1>
 
     <%= render "form", model: @villager  %>
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Preference</th>
-      </tr>
-
-    <% @preferences.each do |pref| %>
-      <tr>
-        <td><%= item_name(pref.item_id) %></td>
-        <td><%= pref.opinion %></td>
-        <td><%= button_to 'Delete', preference_path(pref), class: "button delete-preference-button",
-                                         method: :delete,
-                                         data: { confirm: "Really delete this preference?" } %></td>
-      </tr>
-    <% end %>
-    </table>
+    <div class="profile-page-preference-table">
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Preference</th>
+        </tr>
+      <% @preferences.each do |pref| %>
+        <tr>
+          <td><%= item_name(pref.item_id) %></td>
+          <td><%= pref.opinion %></td>
+          <td><%= button_to 'Delete', preference_path(pref), class: "button delete-preference-button",
+                                           method: :delete,
+                                           data: { confirm: "Really delete this preference?" } %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
     <%= button_to 'Delete Villager', villager_path(@villager), class: "button delete-villager-button",
                                      method: :delete,
                                      data: { confirm: "Really delete #{@villager.name}?" } %>
