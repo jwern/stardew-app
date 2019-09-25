@@ -97,6 +97,8 @@ th.header {
 } */
 
 .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background-color: rgb(255, 74, 43);
   border-radius: 4px;
   border-style: none;
