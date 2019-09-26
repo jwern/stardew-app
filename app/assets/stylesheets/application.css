@@ -213,15 +213,20 @@ th.header {
 }
 
 @media only screen
-  and (max-width : 750px) {
+  and (max-width : 980px) {
   .app-footer {
     position: fixed;
     top: 0;
-    width: 97%;
+    width: 98%;
+  }
+
+  .footer-link {
+    font-size: 1.8em;
   }
 
   .full-page {
     margin-top: 95px;
+    font-size: 1.5em;
   }
 
   .inner-page {
@@ -232,13 +237,46 @@ th.header {
     width: 90%;
   }
 
+  td,
+  th.header {
+    font-size: 1.3em;
+  }
+
   .page-title,
   .individual-page-title {
     padding-left: 0;
   }
 
-  .page-header-title-button {
+  html .button {
+    font-size: 28px;
   }
+
+  .search-header,
+  .filter-header {
+    font-size: 24px;
+  }
+
+  select,
+  textarea,
+  form input[type=text] {
+    font-size: 24px;
+  }
+
+  /* .page-header-title-button {
+    font-size: 1.3em;
+  }
+
+  .button {
+    font-size: 0.8em;
+  }
+
+  .search-filter .button {
+    font-size: 1.3em;
+  }
+
+  form .button {
+    font-size: 1em;
+  } */
 }
 
 .error-message {
