@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
+    @game = get_game
   end
 
   def edit
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :category, :sale_price, :extra_info, :search, :filter)
+      params.require(:item).permit(:name, :category, :sale_price, :extra_info, :search, :filter, :game_id)
     end
 
     def get_prefs
@@ -67,6 +68,14 @@ class ItemsController < ApplicationController
     def get_opinions(pref)
       @preferences.select { |prefs| prefs.opinion == pref }
       .map { |like| Villager.find(like.villager_id) }
+    end
+
+    def get_game
+      if @item.game_id.nil?
+        "None"
+      else
+        Game.find(@item.game_id).name
+      end
     end
 
     #def find_villager_names(villagers)

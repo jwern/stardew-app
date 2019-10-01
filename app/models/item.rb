@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend Sorter
   has_many :preferences, dependent: :destroy
   has_many :villagers, through: :preferences
+  belongs_to :game
 
   ## Search and Filter have been moved to the sorter.rb concern / module
   # def self.search(search)
@@ -26,7 +27,7 @@ class Item < ApplicationRecord
     "Trash",
     "Vegetables"
   ]
-
+  
   validates :name, { presence: true, uniqueness:
                                     { case_sensitive: false,
                                       message: "already exists" }

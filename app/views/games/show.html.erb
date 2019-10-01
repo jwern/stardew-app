@@ -1,0 +1,7 @@
+<%= @game.name %><br>
+<% @villagers.each do |villager| %>
+<%= link_to "#{villager.name}", villager %><br>
+<% end %>
+<% @items.each do |item| %>
+<%= item.name %><br>
+<% end %>

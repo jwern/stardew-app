@@ -1,0 +1,6 @@
+<%= form_with model: model, local: true do |form| %>
+<!-- add render 'error_messages', model: model -->
+  <%= form.label :name %><br>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>

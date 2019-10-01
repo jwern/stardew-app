@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_191640) do
+ActiveRecord::Schema.define(version: 2019_10_01_193222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -22,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_191640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "extra_info"
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_items_on_game_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -48,6 +56,10 @@ ActiveRecord::Schema.define(version: 2019_07_09_191640) do
     t.text "birth_season"
     t.integer "birth_day"
     t.text "extra_info"
+    t.bigint "game_id"
+    t.index ["game_id"], name: "index_villagers_on_game_id"
   end
 
+  add_foreign_key "items", "games"
+  add_foreign_key "villagers", "games"
 end

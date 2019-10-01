@@ -30,6 +30,7 @@ class VillagersController < ApplicationController
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
+    @game = get_game
   end
 
   def edit
@@ -57,7 +58,7 @@ class VillagersController < ApplicationController
 
   private
     def villager_params
-      params.require(:villager).permit(:name, :birth_day, :birth_season, :extra_info, :search, :filter)
+      params.require(:villager).permit(:name, :birth_day, :birth_season, :extra_info, :search, :filter, :game_id)
     end
 
     def get_prefs
@@ -67,5 +68,13 @@ class VillagersController < ApplicationController
     def get_opinions(pref)
       @preferences.select { |prefs| prefs.opinion == pref }
       .map { |like| Item.find(like.item_id) }
+    end
+
+    def get_game
+      if @villager.game_id.nil?
+        "None"
+      else
+        Game.find(@villager.game_id).name
+      end
     end
 end

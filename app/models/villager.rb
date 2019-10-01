@@ -2,6 +2,7 @@ class Villager < ApplicationRecord
   extend Sorter
   has_many :preferences, dependent: :destroy
   has_many :items, through: :preferences
+  belongs_to :game
 
   ## Search and Filter have been moved to the sorter.rb concern / module
   # def self.search(search)

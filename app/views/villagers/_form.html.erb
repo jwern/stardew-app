@@ -1,6 +1,10 @@
 <%= form_with model: model, local: true do |form| %>
 <%= render 'error_messages', model: model %>
   <div class="form-input-element">
+    <%= form.label :game_id, "Game:", class: "preference-type-label" %><br>
+    <%= form.collection_select :game_id, Game.order(:name).all, :id, :name, prompt: true, class: "preference-type-label" %>
+  </div>
+  <div class="form-input-element">
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>
