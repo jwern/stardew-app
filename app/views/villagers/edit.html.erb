@@ -2,7 +2,7 @@
   <div class="center-it inner-page">
     <h1>Edit Villager Info</h1>
 
-    <%= render "form", model: @villager  %>
+    <%= render "form", model: [@game, @villager] %>
     <div class="profile-page-preference-table">
       <table>
         <tr>
@@ -20,11 +20,11 @@
       <% end %>
       </table>
     </div>
-    <%= button_to 'Delete Villager', villager_path(@villager), class: "button delete-villager-button",
+    <%= button_to 'Delete Villager', game_villager_path, class: "button delete-villager-button",
                                      method: :delete,
                                      data: { confirm: "Really delete #{@villager.name}?" } %>
     <br>
     <br>
-    <%= link_to "#{@villager.name}'s Page", @villager, class: "button villager-profile-link" %>
+    <%= link_to "#{@villager.name}'s Page", game_villager_path, class: "button villager-profile-link" %>
   </div>
 </div>

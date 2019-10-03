@@ -1,8 +1,9 @@
 <%= form_with model: model, local: true do |form| %>
-<%= render 'error_messages', model: model %>
+<%= render 'error_messages', model: model.last %>
   <div class="form-input-element">
     <%= form.label :game_id, "Game:", class: "preference-type-label" %><br>
-    <%= form.collection_select :game_id, Game.order(:name).all, :id, :name, prompt: true, class: "preference-type-label" %>
+    <%= form.text_field :game_id, value: @game.name, readonly: true %>
+    <%= form.hidden_field :game_id, value: @game.id %>
   </div>
   <div class="form-input-element">
     <%= form.label :name %><br>

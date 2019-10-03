@@ -1,7 +1,12 @@
 <%= @game.name %><br>
+<%= link_to "Villagers", game_villagers_path(@game) %>
+<%= link_to "Items", game_items_path(@game) %>
+
+<% if false %>
 <% @villagers.each do |villager| %>
 <%= link_to "#{villager.name}", villager %><br>
 <% end %>
 <% @items.each do |item| %>
 <%= item.name %><br>
+<% end %>
 <% end %>

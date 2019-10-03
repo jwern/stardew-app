@@ -9,10 +9,11 @@ class PreferencesController < ApplicationController
 
   def create
     @preference = Preference.new(preference_params)
+    @game = get_game
     #@villager = Villager.find(@preference.villager_id)
 
     if @preference.save
-      redirect_back(fallback_location: villagers_path)
+      redirect_back(fallback_location: game_villagers_path(@game))
     else
       render :new
     end
@@ -31,5 +32,10 @@ class PreferencesController < ApplicationController
   private
     def preference_params
       params.require(:preference).permit(:villager_id, :item_id, :opinion)
+    end
+
+    def get_game
+      @villager = Villager.find(preference_params[:villager_id])
+      Game.where(id: @villager.game_id)
     end
 end

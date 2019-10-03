@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   #get 'items/new'
   get 'items/index'
   get 'villagers/index'
-  resources :items
-  resources :villagers
+  resources :games do
+    resources :items
+    resources :villagers
+  end
   resources :preferences
   resources :notes
-  resources :games
   get 'application/index'
 
   root 'notes#index'

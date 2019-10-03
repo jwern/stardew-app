@@ -1,0 +1,19 @@
+<h1>Add New Game</h1>
+<%= render 'form', model: @game %>
+
+<h1>Select Game</h1>
+<table>
+  <thead>
+    <tr>
+      <th class="header", colspan="2", scope="col">Game</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @games.order(:name).each do |game| %>
+      <tr>
+        <td><%= game.name %></td>
+        <td><%= link_to 'Select', game_path(game), class: "button villager-profile-link" %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

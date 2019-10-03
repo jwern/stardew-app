@@ -1,26 +1,31 @@
 class VillagersController < ApplicationController
   def new
+    @game = Game.find(params[:game_id])
     @villager = Villager.new
   end
 
   def index
     #@villagers = Villager.all
+
+    @game = Game.find(params[:game_id])
+    @villagers_all = Villager.where(game_id: @game.id)
     if params[:search]
-      @villagers = Villager.search(params[:search])
+      @villagers = @villagers_all.search(params[:search])
     elsif params[:filter]
-      @villagers = Villager.filter(:birth_season, params[:filter])
+      @villagers = @villagers_all.filter(:birth_season, params[:filter])
     else
-      @villagers = Villager.all
+      @villagers = @villagers_all
     end
   end
 
   def create
+    @game = Game.find(params[:game_id])
     @villager = Villager.new(villager_params)
 
     if @villager.save
-      redirect_to @villager
+      redirect_to game_villager_path(@game, @villager)
     else
-      render :new
+      render :index
     end
   end
 
@@ -30,21 +35,23 @@ class VillagersController < ApplicationController
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
-    @game = get_game
+    @game = get_game_name
   end
 
   def edit
     @villager = Villager.find(params[:id])
+    @game = Game.find(params[:game_id])
     @preferences = get_prefs
   end
 
   def update
+    @game = Game.find(params[:game_id])
     @villager = Villager.find(params[:id])
 
     @villager.update_attributes(villager_params)
 
     if @villager.save
-      redirect_to @villager
+      redirect_to game_villager_path(@game, @villager)
     else
       render :edit
     end
@@ -53,7 +60,7 @@ class VillagersController < ApplicationController
   def destroy
     @villager = Villager.find(params[:id])
     @villager.destroy
-    redirect_to villagers_path
+    redirect_to game_villagers_path
   end
 
   private
@@ -70,7 +77,7 @@ class VillagersController < ApplicationController
       .map { |like| Item.find(like.item_id) }
     end
 
-    def get_game
+    def get_game_name
       if @villager.game_id.nil?
         "None"
       else
