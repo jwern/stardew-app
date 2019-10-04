@@ -1,14 +1,14 @@
 class VillagersController < ApplicationController
   def new
     @game = Game.find(params[:game_id])
-    @villager = Villager.new
+    @villager = @game.villagers.new
   end
 
   def index
     #@villagers = Villager.all
 
     @game = Game.find(params[:game_id])
-    @villagers_all = Villager.where(game_id: @game.id)
+    @villagers_all = @game.villagers
     if params[:search]
       @villagers = @villagers_all.search(params[:search])
     elsif params[:filter]
@@ -20,7 +20,7 @@ class VillagersController < ApplicationController
 
   def create
     @game = Game.find(params[:game_id])
-    @villager = Villager.new(villager_params)
+    @villager = @game.villagers.new(villager_params)
 
     if @villager.save
       redirect_to game_villager_path(@game, @villager)
@@ -30,23 +30,23 @@ class VillagersController < ApplicationController
   end
 
   def show
-    @villager = Villager.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @villager = @game.villagers.find(params[:id])
 
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
-    @game = get_game_name
   end
 
   def edit
-    @villager = Villager.find(params[:id])
     @game = Game.find(params[:game_id])
+    @villager = @game.villagers.find(params[:id])
     @preferences = get_prefs
   end
 
   def update
     @game = Game.find(params[:game_id])
-    @villager = Villager.find(params[:id])
+    @villager = @game.villagers.find(params[:id])
 
     @villager.update_attributes(villager_params)
 
@@ -58,14 +58,15 @@ class VillagersController < ApplicationController
   end
 
   def destroy
-    @villager = Villager.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @villager = @game.villagers.find(params[:id])
     @villager.destroy
     redirect_to game_villagers_path
   end
 
   private
     def villager_params
-      params.require(:villager).permit(:name, :birth_day, :birth_season, :extra_info, :search, :filter, :game_id)
+      params.require(:villager).permit(:name, :birth_day, :birth_season, :extra_info, :search, :filter)
     end
 
     def get_prefs

@@ -7,6 +7,12 @@ class GamesController < ApplicationController
     @games = Game.all
   end
 
+  def edit
+    @game = Game.find(params[:id])
+    @villagers = @game.villagers
+    @items = @game.items
+  end
+
   def create
     @game = Game.new(game_params)
 
@@ -14,6 +20,17 @@ class GamesController < ApplicationController
       redirect_back(fallback_location: villagers_path)
     else
       render :new
+    end
+  end
+
+  def update
+    @game = Game.find(params[:id])
+    @game.update_attributes(game_params)
+
+    if @game.save
+      redirect_to game_path
+    else
+      render :edit
     end
   end
 
@@ -26,7 +43,7 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
-    redirect_back(fallback_location: games_path)
+    render games_path
   end
 
   private

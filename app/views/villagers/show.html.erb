@@ -7,7 +7,7 @@
     <table>
       <tr>
         <th class="header", scope="col">Game</th>
-        <td><%= @game %></td>
+        <td><%= @game.name %></td>
       </tr>
       <tr>
         <th class="header", scope="col">Birth Date</th>
@@ -30,5 +30,8 @@
         <td><%= link_to 'Edit Villager', edit_game_villager_path, class: "button edit-villager-link" %></td>
       </tr>
     </table>
+    <div>
+      <%= link_to "#{@game.name} Villagers", game_villagers_path, class: "button" %>
+    </div>
   </div>
 </div>

@@ -1,0 +1,6 @@
+<h1>Edit Game</h1>
+<%= render "form", model: @game %><br>
+<%= button_to 'Delete Game', game_path, class: "button",
+                                 method: :delete,
+                                 data: { confirm:
+                                   "Really delete #{@game.name}?\nThis will also delete #{@villagers.count} villagers and #{@items.count} items." } %>
