@@ -1,64 +1,71 @@
 class ItemsController < ApplicationController
   def new
-    @item = Item.new
+    @game = Game.find(params[:game_id])
+    @item = @game.items.new
   end
 
   def index
     #@items = Item.all
+    @game = Game.find(params[:game_id])
+    @items_all = @game.items
     if params[:search]
-      @items = Item.search(params[:search])
+      @items = @items_all.search(params[:search])
     elsif params[:filter]
-      @items = Item.filter(:category, params[:filter])
+      @items = @items_all.filter(:category, params[:filter])
     else
-      @items = Item.all
+      @items = @items_all
     end
   end
 
   def create
-    @item = Item.new(item_params)
+    @game = Game.find(params[:game_id])
+    @item = @game.items.new(item_params)
 
     if @item.save
-      redirect_to @item
+      redirect_to game_item_path(@game, @item)
     else
       render :new
     end
   end
 
   def show
-    @item = Item.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @item = @game.items.find(params[:id])
 
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
-    @game = get_game
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @item = @game.items.find(params[:id])
     @preferences = get_prefs
   end
 
   def update
-    @item = Item.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @item = @game.items.find(params[:id])
 
     @item.update_attributes(item_params)
 
     if @item.save
-      redirect_to @item
+      redirect_to game_item_path
     else
       render :edit
     end
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    @game = Game.find(params[:game_id])
+    @item = @game.items.find(params[:id])
     @item.destroy
-    redirect_to items_path
+    redirect_to game_items_path
   end
 
   private
     def item_params
-      params.require(:item).permit(:name, :category, :sale_price, :extra_info, :search, :filter, :game_id)
+      params.require(:item).permit(:name, :category, :sale_price, :extra_info, :search, :filter)
     end
 
     def get_prefs
@@ -70,13 +77,13 @@ class ItemsController < ApplicationController
       .map { |like| Villager.find(like.villager_id) }
     end
 
-    def get_game
-      if @item.game_id.nil?
-        "None"
-      else
-        Game.find(@item.game_id).name
-      end
-    end
+    # def get_game_name
+    #   if @item.game_id.nil?
+    #     "None"
+    #   else
+    #     Game.find(@item.game_id).name
+    #   end
+    # end
 
     #def find_villager_names(villagers)
       #Villager.find(villagers.villager_id).name

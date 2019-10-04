@@ -7,7 +7,7 @@
     <table>
       <tr>
         <th class="header", scope="col">Game</th>
-        <td><%= @game %></td>
+        <td><%= @game.name %></td>
       </tr>
       <tr>
         <th class="header", scope="col">Category</th>
@@ -31,8 +31,11 @@
       </tr>
       <tr>
         <th class="header", scope="col">Updates?</th>
-        <td><%= link_to 'Edit Item', edit_item_path(@item), class: "button edit-item-link" %></td>
+        <td><%= link_to 'Edit Item', edit_game_item_path, class: "button edit-item-link" %></td>
       </tr>
     </table>
+    <div>
+      <%= link_to "#{@game.name} Items", game_items_path, class: "button" %>
+    </div>
   </div>
 </div>

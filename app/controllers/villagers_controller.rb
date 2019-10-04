@@ -25,7 +25,7 @@ class VillagersController < ApplicationController
     if @villager.save
       redirect_to game_villager_path(@game, @villager)
     else
-      render :index
+      render :new
     end
   end
 
@@ -51,7 +51,7 @@ class VillagersController < ApplicationController
     @villager.update_attributes(villager_params)
 
     if @villager.save
-      redirect_to game_villager_path(@game, @villager)
+      redirect_to game_villager_path
     else
       render :edit
     end
@@ -78,11 +78,11 @@ class VillagersController < ApplicationController
       .map { |like| Item.find(like.item_id) }
     end
 
-    def get_game_name
-      if @villager.game_id.nil?
-        "None"
-      else
-        Game.find(@villager.game_id).name
-      end
-    end
+    # def get_game_name
+    #   if @villager.game_id.nil?
+    #     "None"
+    #   else
+    #     Game.find(@villager.game_id).name
+    #   end
+    # end
 end

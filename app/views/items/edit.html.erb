@@ -2,7 +2,7 @@
   <div class="center-it inner-page">
     <h1>Edit Item Info</h1>
 
-    <%= render "form", model: @item %>
+    <%= render "form", model: [@game, @item] %>
     <div class="profile-page-preference-table">
       <table>
         <tr>
@@ -22,11 +22,11 @@
       </table>
     </div>
 
-    <%= button_to 'Delete Item', item_path(@item), class: "button delete-item-button",
+    <%= button_to 'Delete Item', game_item_path, class: "button delete-item-button",
                                  method: :delete,
                                  data: { confirm: "Really delete #{@item.name}?" } %>
     <br>
     <br>
-    <%= link_to "#{@item.name} Page", @item, class: "button item-page-link" %>
+    <%= link_to "#{@item.name} Page", game_item_path, class: "button item-page-link" %>
   </div>
 </div>
