@@ -35,6 +35,13 @@ class ItemsController < ApplicationController
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
+
+    # Because Preferences are only accessed from the item and villager show pages,
+    # needed to pass game and item scope in...but doing it via @game now
+    # @villagers = get_preferred(@game, "villagers")
+    # @items = get_preferred(@game, "items")
+    # @villagers = @game.villagers
+    # @items = @game.items
   end
 
   def edit

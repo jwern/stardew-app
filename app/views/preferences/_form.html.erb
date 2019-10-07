@@ -6,7 +6,7 @@
       <%= form.hidden_field :villager_id, value: villager_select %>
     <% else %>
       <%= form.label :villager, "Villager:", class: "preference-type-label" %><br>
-      <%= form.collection_select :villager_id, Villager.order(:name).all, :id, :name, prompt: true, class: "preference-type-label" %>
+      <%= form.collection_select :villager_id, @game.villagers.order(:name), :id, :name, prompt: true, class: "preference-type-label" %>
     <% end %>
   </div>
   <div class="form-input-element">
@@ -14,7 +14,7 @@
       <%= form.hidden_field :item_id, value: item_select %>
     <% else %>
       <%= form.label :item, "Item:", class: "preference-type-label" %><br>
-      <%= form.collection_select :item_id, Item.order(:name).all, :id, :name, prompt: true, class: "preference-type-label" %>
+      <%= form.collection_select :item_id, @game.items.order(:name), :id, :name, prompt: true, class: "preference-type-label" %>
     <% end %>
   </div>
   <div class="form-input-element create-preference-choices">

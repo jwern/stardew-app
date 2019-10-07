@@ -4,6 +4,6 @@ class SetDefaultGameForExistingItems < ActiveRecord::Migration[5.2]
   end
 
   def down
-    Game.update_all(game_id: nil)
+    Item.update_all(game_id: nil)
   end
 end

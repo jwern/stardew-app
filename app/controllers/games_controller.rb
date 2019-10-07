@@ -4,7 +4,10 @@ class GamesController < ApplicationController
   end
 
   def index
+    @game = Game.new
     @games = Game.all
+
+    render layout: 'no_footer'
   end
 
   def edit
@@ -17,7 +20,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      redirect_back(fallback_location: villagers_path)
+      redirect_to game_path(@game)
     else
       render :new
     end
@@ -28,7 +31,7 @@ class GamesController < ApplicationController
     @game.update_attributes(game_params)
 
     if @game.save
-      redirect_to game_path
+      redirect_to game_path(@game)
     else
       render :edit
     end
@@ -43,7 +46,7 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
-    render games_path
+    redirect_to games_path
   end
 
   private

@@ -19,7 +19,8 @@ class Villager < ApplicationRecord
   BIRTH_DAYS = (1..30).to_a
 
   validates :name, { presence: true, uniqueness:
-                                    { case_sensitive: false,
+                                    { scope: :game,
+                                      case_sensitive: false,
                                       message: "already exists" } }
   validates :birth_season, inclusion: { in: BIRTH_SEASONS,
     message: "%{value} is not a valid season" }

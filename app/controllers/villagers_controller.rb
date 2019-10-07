@@ -36,6 +36,9 @@ class VillagersController < ApplicationController
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
+
+    # @villagers = get_preferred(@game, "villagers")
+    # @items = get_preferred(@game, "items")
   end
 
   def edit

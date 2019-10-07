@@ -1,6 +1,7 @@
 class Preference < ApplicationRecord
   belongs_to :villager
   belongs_to :item
+  # has_one :game, through: :item
 
   OPINIONS = [
     "Likes",

@@ -14,6 +14,9 @@
     <div class="app-footer"><footer>
     <br>
       <%= link_to 'Games Index', games_path, class: "footer-link" %>
+      <%= link_to "#{@game.name} Home", @game, class: "footer-link" %>
+      <%= link_to "Villagers", game_villagers_path(@game), class: "footer-link" %>
+      <%= link_to "Items", game_items_path(@game), class: "footer-link" %>
       <% if false %>
       <%= link_to 'Villagers Index', villagers_path, class: "footer-link" %>
       <%= link_to 'Items Index', items_path, class: "footer-link" %>

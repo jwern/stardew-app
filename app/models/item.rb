@@ -27,9 +27,10 @@ class Item < ApplicationRecord
     "Trash",
     "Vegetables"
   ]
-  
+
   validates :name, { presence: true, uniqueness:
-                                    { case_sensitive: false,
+                                    { scope: :game,
+                                      case_sensitive: false,
                                       message: "already exists" }
 }
   validates :category, inclusion: { in: CATEGORIES }

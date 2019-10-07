@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resources :notes
   get 'application/index'
 
-  root 'notes#index'
+  root 'games#index'
 end
