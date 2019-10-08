@@ -1,34 +1,36 @@
 class NotesController < ApplicationController
+  before_action :get_game
+
   def index
     #@notes = Note.all
-    @notes = Note.sort_by_type
+    @notes = @game.notes.sort_by_type
   end
 
   def new
-    @note = Note.new
+    @note = @game.notes.new
   end
 
   def create
-    @note = Note.new(note_params)
+    @note = @game.notes.new(note_params)
 
     if @note.save
-      redirect_to notes_path
+      redirect_to game_path(@game)
     else
       render :new
     end
   end
 
   def edit
-    @note = Note.find(params[:id])
+    @note = @game.notes.find(params[:id])
   end
 
   def update
-    @note = Note.find(params[:id])
+    @note = @game.notes.find(params[:id])
 
     @note.update_attributes(note_params)
 
     if @note.save
-      redirect_to notes_path
+      redirect_to game_path(@game)
     else
       render :edit
     end
@@ -38,13 +40,17 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @note = Note.find(params[:id])
+    @note = @game.notes.find(params[:id])
     @note.destroy
-    redirect_to notes_path
+    redirect_to game_path(@game)
   end
 
   private
     def note_params
       params.require(:note).permit(:additional_info, :info_type)
+    end
+
+    def get_game
+      @game = Game.find(params[:game_id])
     end
 end

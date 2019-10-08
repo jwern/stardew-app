@@ -41,6 +41,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @villagers = get_villagers
     @items = get_items
+    @notes = get_notes
   end
 
   def destroy
@@ -60,5 +61,9 @@ class GamesController < ApplicationController
 
     def get_items
       Item.where(game_id: @game.id)
+    end
+
+    def get_notes
+      Note.where(game_id: @game.id).sort_by_type
     end
 end

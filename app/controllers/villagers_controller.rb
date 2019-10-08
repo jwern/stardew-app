@@ -1,13 +1,11 @@
 class VillagersController < ApplicationController
+  before_action :get_game
+
   def new
-    @game = Game.find(params[:game_id])
     @villager = @game.villagers.new
   end
 
   def index
-    #@villagers = Villager.all
-
-    @game = Game.find(params[:game_id])
     @villagers_all = @game.villagers
     if params[:search]
       @villagers = @villagers_all.search(params[:search])
@@ -19,7 +17,6 @@ class VillagersController < ApplicationController
   end
 
   def create
-    @game = Game.find(params[:game_id])
     @villager = @game.villagers.new(villager_params)
 
     if @villager.save
@@ -30,7 +27,6 @@ class VillagersController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:game_id])
     @villager = @game.villagers.find(params[:id])
 
     @preferences = get_prefs
@@ -42,13 +38,11 @@ class VillagersController < ApplicationController
   end
 
   def edit
-    @game = Game.find(params[:game_id])
     @villager = @game.villagers.find(params[:id])
     @preferences = get_prefs
   end
 
   def update
-    @game = Game.find(params[:game_id])
     @villager = @game.villagers.find(params[:id])
 
     @villager.update_attributes(villager_params)
@@ -61,7 +55,6 @@ class VillagersController < ApplicationController
   end
 
   def destroy
-    @game = Game.find(params[:game_id])
     @villager = @game.villagers.find(params[:id])
     @villager.destroy
     redirect_to game_villagers_path
@@ -79,6 +72,10 @@ class VillagersController < ApplicationController
     def get_opinions(pref)
       @preferences.select { |prefs| prefs.opinion == pref }
       .map { |like| Item.find(like.item_id) }
+    end
+
+    def get_game
+      @game = Game.find(params[:game_id])
     end
 
     # def get_game_name

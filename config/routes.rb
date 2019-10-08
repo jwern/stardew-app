@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :games do
     resources :items
     resources :villagers
+    resources :notes
   end
   resources :preferences
-  resources :notes
   get 'application/index'
 
   root 'games#index'

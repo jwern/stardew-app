@@ -1,4 +1,5 @@
 <%= form_with model: model, local: true do |form| %>
+<%= render 'error_messages', model: model.last %>
   <div class="form-input-element">
     <%= form.label :info_type %><br>
     <%= form.select :info_type, Note::NOTE_TYPES %>
