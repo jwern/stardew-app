@@ -1,5 +1,6 @@
+<% provide(:title, "#{@villager.name}") %>
 <div class="full-page">
-  <div class="center-it inner-page">
+  <div class="inner-page">
     <div class="individual-page-title">
       <h1><%= @villager.name %></h1>
       <span class="individual-page-pic"><%= headshot(@villager.name) %></span>
@@ -27,11 +28,8 @@
       </tr>
       <tr>
         <th class="header", scope="col">Updates?</th>
-        <td><%= link_to 'Edit Villager', edit_game_villager_path, class: "button edit-villager-link" %></td>
+        <td><%= link_to 'Edit Villager', edit_game_villager_path, class: "button" %></td>
       </tr>
     </table>
-    <div>
-      <%= link_to "#{@game.name} Villagers", game_villagers_path, class: "button" %>
-    </div>
   </div>
 </div>

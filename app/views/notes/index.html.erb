@@ -1,5 +1,5 @@
 <div class="full-page">
-  <div class="center-it inner-page">
+  <div class="inner-page">
     <div class="page-header-title-button">
       <h1 class="page-title">Notes</h1>
       <%= link_to 'Add New Note', new_note_path, class: "button add-new-link" %>
@@ -18,7 +18,7 @@
         <% note.each do |info| %>
           <tr>
             <td class="additional-info"><%= sanitize(info.additional_info) %></td>
-            <td><%= link_to 'Edit', edit_note_path(info), class: "button edit-note-link" %></td>
+            <td><%= link_to 'Edit', edit_note_path(info), class: "button" %></td>
           </tr>
         <% end %>
       <% end %>

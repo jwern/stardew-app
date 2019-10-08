@@ -1,5 +1,6 @@
+<% provide(:title, "Edit Villager") %>
 <div class="full-page">
-  <div class="center-it inner-page">
+  <div class="inner-page">
     <h1>Edit Villager Info</h1>
 
     <%= render "form", model: [@game, @villager] %>
@@ -13,18 +14,18 @@
         <tr>
           <td><%= item_name(pref.item_id) %></td>
           <td><%= pref.opinion %></td>
-          <td><%= button_to 'Delete', preference_path(pref), class: "button delete-preference-button",
+          <td><%= button_to 'Delete', preference_path(pref), class: "button delete-button",
                                            method: :delete,
                                            data: { confirm: "Really delete this preference?" } %></td>
         </tr>
       <% end %>
       </table>
     </div>
-    <%= button_to 'Delete Villager', game_villager_path, class: "button delete-villager-button",
+    <%= button_to 'Delete Villager', game_villager_path, class: "button",
                                      method: :delete,
                                      data: { confirm: "Really delete #{@villager.name}?" } %>
     <br>
     <br>
-    <%= link_to "#{@villager.name}'s Page", game_villager_path, class: "button villager-profile-link" %>
+    <%= link_to "#{@villager.name}'s Page", game_villager_path, class: "button" %>
   </div>
 </div>

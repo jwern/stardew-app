@@ -1,19 +1,32 @@
-<h1>Add New Game</h1>
-<%= render 'form', model: @game %>
-
-<h1>Select Game</h1>
-<table>
-  <thead>
-    <tr>
-      <th class="header", colspan="2", scope="col">Game</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @games.order(:name).each do |game| %>
-      <tr>
-        <td><%= game.name %></td>
-        <td><%= link_to 'Select', game_path(game), class: "button villager-profile-link" %></td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
+<% provide(:title, "Games Index") %>
+<div class="full-page">
+  <div class="inner-page">
+    <div class="page-header-title-button">
+      <h1 class="page-title">Select Game</h1>
+      <%= link_to 'Add New Game', new_game_path, class: "button add-new-link" %>
+    </div>
+    <div class="search-filter">
+      <div class="search-header">Search By Name:<%= form_with url: games_path, method: :get, local: true do |form| %>
+        <%= form.text_field :search, value: params[:search], class: "search-style" %>
+        <%= form.submit 'Search', name:nil, class: "button search-button" %>
+      <% end %>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th class="header", colspan="1", scope="col">Game</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @games.order(:name).each do |game| %>
+          <tr>
+            <td><%= game.name %></td>
+            <td><%= link_to 'Select', game_path(game), class: "button" %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

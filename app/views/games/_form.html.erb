@@ -1,6 +1,10 @@
 <%= form_with model: model, local: true do |form| %>
 <%= render 'error_messages', model: model %>
+<div class="form-input-element">
   <%= form.label :name %><br>
   <%= form.text_field :name %>
+</div>
+<div class="form-input-element">
   <%= form.submit class: "button" %>
+</div>
 <% end %>

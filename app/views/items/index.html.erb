@@ -1,5 +1,6 @@
+<% provide(:title, "#{@game.name} Items") %>
 <div class="full-page">
-  <div class="center-it inner-page">
+  <div class="inner-page">
     <div class="page-header-title-button">
       <h1 class="page-title"><%= "#{@game.name}" %> Items List</h1>
       <%= link_to 'Add New Item', new_game_item_path, class: "button add-new-link" %>
@@ -10,7 +11,7 @@
         <%= form.submit 'Search', name:nil, class: "button search-button" %>
       <% end %>
       </div>
-      <div class="filter-header filter-items">Filter By Category:<%= form_with url: game_items_path, method: :get, local: true do |form| %>
+      <div class="filter-header">Filter By Category:<%= form_with url: game_items_path, method: :get, local: true do |form| %>
         <%= form.select :filter, Item::CATEGORIES, selected: params[:filter] %>
         <%= form.submit 'Filter', name:nil, class: "button filter-button" %>
       <% end %>
@@ -32,7 +33,7 @@
             <td><%= item.name %></td>
             <td><%= item.category %></td>
             <td><%= item.sale_price %></td>
-            <td><%= link_to 'Item Page', game_item_path(@game, item), class: "button item-page-link" %></td>
+            <td><%= link_to 'Item Page', game_item_path(@game, item), class: "button" %></td>
           </tr>
         <% end %>
       </tbody>

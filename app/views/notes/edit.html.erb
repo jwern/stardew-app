@@ -1,10 +1,11 @@
+<% provide(:title, "Edit Note") %>
 <div class="full-page">
-  <div class="center-it inner-page">
+  <div class="inner-page">
     <h1>Edit Note</h1>
 
     <%= render "form", model: [@game, @note] %>
 
-    <%= button_to 'Delete Note', game_note_path, class: "button delete-note-button",
+    <%= button_to 'Delete Note', game_note_path, class: "button delete-button",
                                      method: :delete,
                                      data: { confirm: "Really delete this note?" } %>
   </div>

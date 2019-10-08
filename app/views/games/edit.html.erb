@@ -1,6 +1,10 @@
-<h1>Edit Game</h1>
-<%= render "form", model: @game %><br>
-<%= button_to 'Delete Game', game_path, class: "button",
-                                 method: :delete,
-                                 data: { confirm:
-                                   "Really delete #{@game.name}?\nThis will also delete #{@villagers.count} villagers and #{@items.count} items." } %>
+<% provide(:title, "Edit Game") %>
+<div class="full-page">
+  <div class="inner-page">
+    <h1>Edit Game</h1>
+    <%= render "form", model: @game %>
+    <%= button_to 'Delete Game', game_path, class: "button delete-button", method: :delete, data:
+                                       { confirm:
+                                       "Really delete #{@game.name}?\nThis will also delete #{@villagers.count} villagers and #{@items.count} items." } %>
+  </div>
+</div>

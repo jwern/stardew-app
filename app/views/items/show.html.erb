@@ -1,5 +1,6 @@
+<% provide(:title, "#{@item.name}") %>
 <div class="full-page">
-  <div class="center-it inner-page">
+  <div class="inner-page">
     <div class="individual-page-title">
       <h1><%= @item.name %></h1>
       <span class="individual-page-pic"><%= item_pic(@item.name) %></span>
@@ -31,11 +32,8 @@
       </tr>
       <tr>
         <th class="header", scope="col">Updates?</th>
-        <td><%= link_to 'Edit Item', edit_game_item_path, class: "button edit-item-link" %></td>
+        <td><%= link_to 'Edit Item', edit_game_item_path, class: "button" %></td>
       </tr>
     </table>
-    <div>
-      <%= link_to "#{@game.name} Items", game_items_path, class: "button" %>
-    </div>
   </div>
 </div>

@@ -59,8 +59,8 @@ table {
   width: 20%;
 }
 
-.center-it {
-}
+/* .center-it {
+} */
 
 .full-page {
   display: flex;
@@ -70,6 +70,13 @@ table {
   background-color: rgb(42, 224, 255);
   padding: 20px 0;
   border-radius: 10px;
+}
+
+.full-page-notes-embedded {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
 .inner-page {
@@ -100,7 +107,7 @@ th.header {
 .button {
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: rgb(255, 74, 43);
+  background-color: rgba(255, 74, 43, 0.95);
   border-radius: 4px;
   border-style: none;
   padding: 6px 10px;
@@ -132,11 +139,6 @@ th.header {
   width: 100%;
 }
 
-/* .individual-page-title {
-  padding-left: 30px;
-  margin-left: 20px;
-} */
-
 .individual-page-title {
   width: 60%;
   margin: auto;
@@ -149,6 +151,7 @@ th.header {
 
 .add-new-link {
   font-weight: bold;
+  background-color: rgb(255, 74, 43);
 }
 
 .create-preference-choices {
@@ -199,6 +202,9 @@ th.header {
   margin-top: 10px;
 }
 
+.delete-button {
+  margin-left: 20px;
+}
 
 .error-explanation {
   color: rgb(255, 74, 43);
@@ -206,13 +212,16 @@ th.header {
 }
 
 .app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(42, 224, 255, 1);
   border-radius: 10px;
   border-style: solid;
   border-color: white;
   border-width: 2px;
   height: 75px;
-  margin-top: 10px;
+  margin-top: 5px;
   text-align: center;
 }
 
@@ -266,10 +275,7 @@ th.header {
     font-size: 24px;
   }
 
-  /* .page-header-title-button {
-    font-size: 1.3em;
-  }
-
+  /*
   .button {
     font-size: 0.8em;
   }

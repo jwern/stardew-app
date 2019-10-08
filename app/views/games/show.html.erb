@@ -1,13 +1,10 @@
-<h1><%= @game.name %></h1><br>
-<%= render "notes/index" %>
-<%= link_to "Villagers", game_villagers_path(@game) %><br>
-<%= link_to "Items", game_items_path(@game) %><br>
-<%= link_to "Edit Game", edit_game_path %>
-<% if false %>
-<% @villagers.each do |villager| %>
-<%= link_to "#{villager.name}", villager %><br>
-<% end %>
-<% @items.each do |item| %>
-<%= item.name %><br>
-<% end %>
-<% end %>
+<% provide(:title, "#{@game.name}") %>
+<div class="full-page">
+  <div class="inner-page">
+    <div class="page-header-title-button">
+      <h1 class="page-title"><%= @game.name %></h1>
+      <%= link_to 'Edit Game', edit_game_path, class: "button" %>
+    </div>
+    <%= render "notes/index" %>
+  </div>
+</div>

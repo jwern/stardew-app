@@ -1,4 +1,5 @@
 class Game < ApplicationRecord
+  extend Sorter
   has_many :items, dependent: :destroy
   has_many :villagers, dependent: :destroy
   has_many :notes, dependent: :destroy

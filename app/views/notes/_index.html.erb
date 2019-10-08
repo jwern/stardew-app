@@ -1,28 +1,28 @@
-<div class="full-page">
-  <div class="center-it inner-page">
+<div class="full-page-notes-embedded">
+  <div class="inner-page">
     <div class="page-header-title-button">
       <h1 class="page-title">Notes</h1>
       <%= link_to 'Add New Note', new_game_note_path(@game), class: "button add-new-link" %>
     </div>
-  <table>
-    <thead>
-      <% @notes.each do |type, note| %>
-        <% unless @notes[type].empty? %>
-          <tr>
-            <th class="header", scope="col"><%= type %></th>
-            <th></th>
-          </tr>
+    <table>
+      <thead>
+        <% @notes.each do |type, note| %>
+          <% unless @notes[type].empty? %>
+            <tr>
+              <th class="header", scope="col"><%= type %></th>
+              <th></th>
+            </tr>
+          <% end %>
+        </thead>
+        <tbody>
+          <% note.each do |info| %>
+            <tr>
+              <td class="additional-info"><%= sanitize(info.additional_info) %></td>
+              <td><%= link_to 'Edit', edit_game_note_path(@game, info), class: "button" %></td>
+            </tr>
+          <% end %>
         <% end %>
-      </thead>
-      <tbody>
-        <% note.each do |info| %>
-          <tr>
-            <td class="additional-info"><%= sanitize(info.additional_info) %></td>
-            <td><%= link_to 'Edit', edit_game_note_path(@game, info), class: "button edit-note-link" %></td>
-          </tr>
-        <% end %>
-      <% end %>
-      </tbody>
-  </table>
+        </tbody>
+    </table>
   </div>
 </div>

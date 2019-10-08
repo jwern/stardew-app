@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Stardew App</title>
+    <title><%= yield(:title) %> | Farming Sim Wiki</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,18 +11,13 @@
 
   <body>
     <%= yield %>
-    <div class="app-footer"><footer>
-    <br>
-      <%= link_to 'Games Index', games_path, class: "footer-link" %>
-      <%= link_to "#{@game.name} Home", @game, class: "footer-link" %>
-      <%= link_to "Villagers", game_villagers_path(@game), class: "footer-link" %>
-      <%= link_to "Items", game_items_path(@game), class: "footer-link" %>
-      <% if false %>
-      <%= link_to 'Villagers Index', villagers_path, class: "footer-link" %>
-      <%= link_to 'Items Index', items_path, class: "footer-link" %>
-      <%= link_to 'Preferences Index', preferences_path, class: "footer-link" %>
-      <%= link_to 'Home', notes_path, class: "footer-link" %><br>
-      <% end %>
-    </footer></div>
+    <div class="app-footer">
+      <footer>
+        <%= link_to 'Games Index', games_path, class: "footer-link" %>
+        <%= link_to "#{@game.name} Home", @game, class: "footer-link" %>
+        <%= link_to "Villagers", game_villagers_path(@game), class: "footer-link" %>
+        <%= link_to "Items", game_items_path(@game), class: "footer-link" %>
+      </footer>
+    </div>
   </body>
 </html>
