@@ -29,7 +29,7 @@
       <tbody>
         <% @items.order(:name).each do |item| %>
           <tr>
-            <td><%= item_pic(item.name) %></td>
+            <td><%= item_pic(@game.name, item.name) %></td>
             <td><%= item.name %></td>
             <td><%= item.category %></td>
             <td><%= item.sale_price %></td>

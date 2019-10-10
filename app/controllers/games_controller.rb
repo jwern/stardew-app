@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  include CreateFoldersHelper
+  include ApplicationHelper
   before_action :get_game, except: [:new, :index, :create]
 
   def new
@@ -28,6 +30,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
+      create_game_folder(@game.name)
       redirect_to game_path(@game)
     else
       render :new, layout: 'no_footer'
@@ -35,9 +38,11 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game_old = Game.find(params[:id])
     @game.update_attributes(game_params)
 
     if @game.save
+      edit_game_folder(@game_old.name, @game.name)
       redirect_to game_path(@game)
     else
       render :edit
@@ -51,6 +56,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    ## Decided against deleting image folders when a game is deleted in case
+    ## the deletion is a mistake or user decides to undo.  This method is also
+    ## commented out in the CreateFoldersHelper.
+
+    # delete_game_folder(@game.name)
     @game.destroy
     redirect_to games_path
   end

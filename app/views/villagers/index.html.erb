@@ -28,7 +28,7 @@
       <tbody>
         <% @villagers.order(:name).each do |villager| %>
           <tr>
-            <td><%= headshot(villager.name) %></td>
+            <td><%= headshot(@game.name, villager.name) %></td>
             <td><%= villager.name %></td>
             <td><%= "#{villager.birth_season} #{villager.birth_day}" %></td>
             <td><%= link_to 'Profile', game_villager_path(@game, villager), class: "button" %></td>

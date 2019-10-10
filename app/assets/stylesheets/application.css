@@ -31,10 +31,6 @@ form input[type=text] {
   width: 150px;
 }
 
-form {
-  /* display: flex; */
-}
-
 body {
   min-width: 700px;
   min-height: 560px;
@@ -45,10 +41,16 @@ td {
   padding: 15px;
 }
 
-table {
+table,
+.full-form {
   padding: 10px;
   margin: auto;
   width: 60%;
+}
+
+.extra-info-text-area {
+  width: 18em;
+  height: 15em;
 }
 
 .profile-page-preference-table table {
@@ -84,6 +86,7 @@ table {
   background-color: white;
   border-radius: 12px;
   padding: 10px 15px 20px;
+  padding-left: 30px;
 }
 
 th.header {
@@ -247,6 +250,7 @@ th.header {
   }
 
   table,
+  form,
   .individual-page-title {
     width: 90%;
   }
@@ -261,7 +265,7 @@ th.header {
   }
 
   html .button {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .search-header,
@@ -273,6 +277,7 @@ th.header {
   textarea,
   form input[type=text] {
     font-size: 24px;
+    width: 10em;
   }
 
   /*
