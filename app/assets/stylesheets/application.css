@@ -194,6 +194,14 @@ th.header {
   margin: 5px 10px;
 }
 
+.search-header {
+  margin-right: 30px
+}
+
+.filter-header {
+  margin-left: 30px;
+}
+
 .search-filter {
   display: flex;
   align-items: center;
@@ -212,6 +220,10 @@ th.header {
 .error-explanation {
   color: rgb(255, 74, 43);
   font-style: italic;
+}
+
+.error-message {
+  color: rgb(255, 74, 43);
 }
 
 .app-footer {
@@ -261,7 +273,14 @@ th.header {
   }
 
   .page-title {
-    padding-left: 0;
+    /* padding-left: 0;
+    text-align: left;
+    width: 40%; */
+    width: 90%;
+  }
+
+  .page-header-title-button .button {
+    margin-left: 40px;
   }
 
   html .button {
@@ -280,6 +299,13 @@ th.header {
     width: 10em;
   }
 
+  .search-button,
+  .filter-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /*
   .button {
     font-size: 0.8em;
@@ -292,8 +318,4 @@ th.header {
   form .button {
     font-size: 1em;
   } */
-}
-
-.error-message {
-  color: rgb(255, 74, 43);
 }

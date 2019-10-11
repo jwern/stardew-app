@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @items_all = @game.items
     if params[:search]
       @items = @items_all.search(params[:search])
-    elsif params[:filter]
+    elsif !params[:filter].blank?
       @items = @items_all.filter(:category, params[:filter])
     else
       @items = @items_all

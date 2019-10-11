@@ -14,9 +14,11 @@
     <div class="app-footer">
       <footer>
         <%= link_to 'Games Index', games_path, class: "footer-link" %>
-        <%= link_to "#{@game.name} Home", @game, class: "footer-link" %>
-        <%= link_to "Villagers", game_villagers_path(@game), class: "footer-link" %>
-        <%= link_to "Items", game_items_path(@game), class: "footer-link" %>
+        <% unless @no_footer %>
+          <%= link_to "#{@game.name} Home", @game, class: "footer-link" %>
+          <%= link_to "Villagers", game_villagers_path(@game), class: "footer-link" %>
+          <%= link_to "Items", game_items_path(@game), class: "footer-link" %>
+        <% end %>
       </footer>
     </div>
   </body>

@@ -1,12 +1,12 @@
 class GamesController < ApplicationController
-  include CreateFoldersHelper
+  ## Removed folder creation for now.
+  # include CreateFoldersHelper
   include ApplicationHelper
   before_action :get_game, except: [:new, :index, :create]
+  before_action :no_footer, only: [:new, :index, :create]
 
   def new
     @game = Game.new
-
-    render layout: 'no_footer'
   end
 
   def index
@@ -17,8 +17,6 @@ class GamesController < ApplicationController
     else
       @games = @games_all
     end
-
-    render layout: 'no_footer'
   end
 
   def edit
@@ -30,19 +28,23 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      create_game_folder(@game.name)
+      ## Removed folder creation for now: Heroku won't accept file creation outside
+      ## the database or a separate cloud storage solution (like Amazon).
+      # create_game_folder(@game.name)
       redirect_to game_path(@game)
     else
-      render :new, layout: 'no_footer'
+      render :new
     end
   end
 
   def update
-    @game_old = Game.find(params[:id])
+    ## This instance variable is only used for folder creation.
+    # @game_old = Game.find(params[:id])
     @game.update_attributes(game_params)
 
     if @game.save
-      edit_game_folder(@game_old.name, @game.name)
+      ## Removed folder creation until we switch to a cloud storage option.
+      # edit_game_folder(@game_old.name, @game.name)
       redirect_to game_path(@game)
     else
       render :edit
@@ -59,10 +61,13 @@ class GamesController < ApplicationController
     ## Decided against deleting image folders when a game is deleted in case
     ## the deletion is a mistake or user decides to undo.  This method is also
     ## commented out in the CreateFoldersHelper.
-
     # delete_game_folder(@game.name)
     @game.destroy
     redirect_to games_path
+  end
+
+  def no_footer
+    @no_footer = true
   end
 
   private

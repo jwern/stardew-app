@@ -9,7 +9,7 @@ class VillagersController < ApplicationController
     @villagers_all = @game.villagers
     if params[:search]
       @villagers = @villagers_all.search(params[:search])
-    elsif params[:filter]
+    elsif !params[:filter].blank?
       @villagers = @villagers_all.filter(:birth_season, params[:filter])
     else
       @villagers = @villagers_all

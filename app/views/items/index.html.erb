@@ -12,7 +12,7 @@
       <% end %>
       </div>
       <div class="filter-header">Filter By Category:<%= form_with url: game_items_path, method: :get, local: true do |form| %>
-        <%= form.select :filter, Item::CATEGORIES, selected: params[:filter] %>
+        <%= form.select :filter, Item::CATEGORIES, selected: params[:filter], include_blank: "All Items" %>
         <%= form.submit 'Filter', name:nil, class: "button filter-button" %>
       <% end %>
       </div>
