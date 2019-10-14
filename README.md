@@ -9,6 +9,8 @@ It is a personal wiki that can be used to store data about NPCs while playing
 farming sims like Stardew Valley, Rune Factory, etc.  Its primary purpose is
 to help players keep track of NPCs' likes and dislikes for the sake of gift-giving.
 
+![App screenshot](.app/assets/images/app_screenshot.png)
+
 ## Project Status ##
 
 ### Future Updates ###
