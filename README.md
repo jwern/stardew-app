@@ -1,6 +1,6 @@
 # README
 
-<h1>Stardew App - aka, Farming Sim Wiki</h1>
+# Stardew App - aka, Farming Sim Wiki #
 
 This "Stardew App" was my first Rails project while learning Ruby on Rails.
 I used it to learn and practice Rails and CSS.
@@ -9,9 +9,9 @@ It is a personal wiki that can be used to store data about NPCs while playing
 farming sims like Stardew Valley, Rune Factory, etc.  Its primary purpose is
 to help players keep track of NPCs' likes and dislikes for the sake of gift-giving.
 
-<h2>Project Status</h2>
+## Project Status ##
 
-<h3>Future Updates</h3>
+### Future Updates ###
 
 The app is in a working state, but there are other features
 I would like to add at some point:
@@ -20,7 +20,7 @@ I would like to add at some point:
 * Ability to upload images when creating a new villager or item
 * Login so that multiple users can keep their own wikis individually
 
-<h3>Current Bugs</h3>
+### Current Bugs ###
 
 Two issues I still need to fix:
 * There is a bug on mobile that returns an Action Controller: Exception Caught error.
@@ -42,7 +42,7 @@ This redirect is currently a workaround: I need to figure out how to
 display errors on this same page without having to render :new
 and/or how to redirect back to the issuing profile page after save is successful.
 
-<h2>Technologies</h2>
+## Technologies ##
 
 The Stardew App was built in Ruby 2.4.2 and Rails 5.2.3.
 
