@@ -25,14 +25,19 @@ I would like to add at some point:
 ### Current Bugs ###
 
 Two issues I still need to fix:
+
 * There is a bug on mobile that returns an Action Controller: Exception Caught error.
 To recreate:
 
   1) Go to a villager or item profile page within any game.
+
   2) Submit a preference with error (don't pick anything).
   This will redirect you to the new preference page.
+
   3) Refresh / resubmit.  Choose yes if mobile browser asks if you want to resubmit.
+
   4) Go to villager or item index page.
+
   5) Refresh / resubmit.
 
 This bug cannot be recreated on PC.  I suspect it is a post/redirect/get issue
@@ -40,6 +45,7 @@ with resubmission on mobile.
 
 * The embedded preference form on the villager/item profile pages redirects to
 preference/new upon a failed save, and then to Games/index from preference/new.
+
 This redirect is currently a workaround: I need to figure out how to
 display errors on this same page without having to render :new
 and/or how to redirect back to the issuing profile page after save is successful.
