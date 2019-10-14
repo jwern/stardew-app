@@ -1,5 +1,5 @@
 module CreateFoldersHelper
-  ## Module not necessary currently: need cloud storage to create folders.
+  ## Module not necessary currently: need to update to cloud storage to create folders.
   # private
   #   def create_game_folder(name)
   #     Dir.mkdir("app/assets/images/#{titleize_image_link(name)}") unless File.exists?("app/assets/images/#{titleize_image_link(name)}")

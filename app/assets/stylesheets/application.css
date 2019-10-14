@@ -1,19 +1,6 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
+/* These variables for the page background color, headers, buttons, and footer
+were added in preparation for allowing different color schemes per game.
+Functionality for this feature has not been written yet. */
 :root {
   --selected-background: rgb(42, 224, 255);
   --selected-headers: rgba(115, 234, 255, 1);
@@ -21,11 +8,41 @@
   --selected-footer: rgba(42, 224, 255, 1)
 }
 
+body {
+  min-width: 700px;
+  min-height: 560px;
+}
+
 body,
 select,
 form input,
 .search-style {
   font-family: "Calibri", Arial, Helvetica, sans-serif;
+}
+
+table,
+.full-form,
+.individual-page-title {
+  padding: 10px;
+  margin: auto;
+  width: 60%;
+}
+
+th.header {
+  background-color: var(--selected-headers, rgba(115, 234, 255, 1));
+  border-radius: 5px;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+td {
+  font-size: 18px;
+  padding: 15px;
 }
 
 select,
@@ -38,39 +55,6 @@ textarea,
 form input[type=text] {
   width: 150px;
 }
-
-body {
-  min-width: 700px;
-  min-height: 560px;
-}
-
-td {
-  font-size: 18px;
-  padding: 15px;
-}
-
-table,
-.full-form {
-  padding: 10px;
-  margin: auto;
-  width: 60%;
-}
-
-.extra-info-text-area {
-  width: 18em;
-  height: 15em;
-}
-
-.profile-page-preference-table table {
-  margin: 0px 0px 40px 0px;
-  padding: 0px;
-  /* margin: 0px 50px 0px 0px;
-  padding: 0px 40px 0px 0px; */
-  width: 20%;
-}
-
-/* .center-it {
-} */
 
 .full-page {
   display: flex;
@@ -97,23 +81,16 @@ table,
   padding-left: 30px;
 }
 
-th.header {
-  background-color: var(--selected-headers, rgba(115, 234, 255, 1));
-  border-radius: 5px;
-  border-style: solid;
-  border-color: white;
-  border-width: 2px;
-  padding: 10px;
-  font-size: 20px;
-  color: white;
-  text-align: center;
+.extra-info-text-area {
+  width: 18em;
+  height: 15em;
 }
 
-/* td {
-  Assigning min-width here will prevent the weird overlap issue
-  but it doesn't make the content flexible.
-  min-width: 200px;
-} */
+.profile-page-preference-table table {
+  margin: 0px 0px 40px 0px;
+  padding: 0px;
+  width: 20%;
+}
 
 .button {
   -webkit-appearance: none;
@@ -130,12 +107,24 @@ th.header {
   white-space: nowrap;
 }
 
+/* Every button has the same style except the "Add New X" buttons,
+which are called out with a slightly darker background color and bold text */
+.add-new-link {
+  font-weight: bold;
+  background-color: var(--selected-buttons, rgb(255, 74, 43));
+}
+
 .form-input-element {
   margin: 20px 10px;
 }
 
-/* .full-form {
-} */
+/* This is centering the page title and "add new" buttons */
+.page-header-title-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
 .page-title {
   display: inline-block;
@@ -143,56 +132,8 @@ th.header {
   width: 50%;
 }
 
-.page-header-title-button { /*This is centering the page title and "add new" buttons */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.individual-page-title {
-  width: 60%;
-  margin: auto;
-  padding-left: 10px;
-}
-
 .individual-page-pic {
   padding-left: 15px;
-}
-
-.add-new-link {
-  font-weight: bold;
-  background-color: var(--selected-buttons, rgb(255, 74, 43));
-}
-
-.create-preference-choices {
-  padding: 15px 0;
-}
-
-.create-preference-button {
-  margin: auto;
-}
-
-.preference-page-inner {
-  padding-bottom: 45px;
-}
-
-.show-likes,
-.show-dislikes {
-  margin: 10px 0;
-}
-
-.footer-link {
-  margin: 0 20px;
-  padding: 6px 10px;
-  border-radius: 4px;
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-}
-
-.additional-info {
-  white-space: pre-line;
 }
 
 .filter-header,
@@ -221,6 +162,34 @@ th.header {
   margin-top: 10px;
 }
 
+.create-preference-choices {
+  padding: 15px 0;
+}
+
+.create-preference-button {
+  margin: auto;
+}
+
+.preference-page-inner {
+  padding-bottom: 45px;
+}
+
+.show-likes,
+.show-dislikes {
+  margin: 10px 0;
+}
+
+/* This pre-line value allows user-inputted white space line breaks in our
+additional info boxes to be retained, but still collapses in-line white space.
+So I could write "This guy...
+
+
+...is the best!"
+and it would appear as written. */
+.additional-info {
+  white-space: pre-line;
+}
+
 .delete-button {
   margin-left: 20px;
 }
@@ -232,6 +201,15 @@ th.header {
 
 .error-message {
   color: rgb(255, 74, 43);
+}
+
+.footer-link {
+  margin: 0 20px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
 }
 
 .app-footer {
@@ -250,25 +228,10 @@ th.header {
 
 @media only screen
   and (max-width : 980px) {
-  .app-footer {
-    position: fixed;
-    top: 0;
-    width: 98%;
-  }
 
-  .footer-link {
-    font-size: 1.8em;
-  }
-
-  .full-page {
-    margin-top: 95px;
-    font-size: 1.5em;
-  }
-
-  .inner-page {
-    width: 90%;
-  }
-
+  /* Everything will be bigger on mobile -
+   and fill more of the page -
+  to make it easier to read */
   table,
   form,
   .individual-page-title {
@@ -280,10 +243,27 @@ th.header {
     font-size: 1.3em;
   }
 
+  select,
+  textarea,
+  form input[type=text] {
+    font-size: 24px;
+    width: 8em;
+  }
+
+  html .button {
+    font-size: 24px;
+  }
+
+  .full-page {
+    margin-top: 95px;
+    font-size: 1.3em;
+  }
+
+  .inner-page {
+    width: 90%;
+  }
+
   .page-title {
-    /* padding-left: 0;
-    text-align: left;
-    width: 40%; */
     width: 90%;
   }
 
@@ -291,20 +271,9 @@ th.header {
     margin-left: 40px;
   }
 
-  html .button {
-    font-size: 24px;
-  }
-
   .search-header,
   .filter-header {
     font-size: 24px;
-  }
-
-  select,
-  textarea,
-  form input[type=text] {
-    font-size: 24px;
-    width: 10em;
   }
 
   .search-button,
@@ -314,16 +283,17 @@ th.header {
     margin-right: auto;
   }
 
-  /*
-  .button {
-    font-size: 0.8em;
+  /* On mobile and other smaller screens,
+  the footer will be fixed to the top
+  of the page so the user doesn't have to scroll
+  all the way down to see it */
+  .app-footer {
+    position: fixed;
+    top: 0;
+    width: 98%;
   }
 
-  .search-filter .button {
-    font-size: 1.3em;
+  .footer-link {
+    font-size: 1.6em;
   }
-
-  form .button {
-    font-size: 1em;
-  } */
 }

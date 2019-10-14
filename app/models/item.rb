@@ -4,17 +4,6 @@ class Item < ApplicationRecord
   has_many :villagers, through: :preferences
   belongs_to :game
 
-  ## Search and Filter have been moved to the sorter.rb concern / module
-  # def self.search(search)
-  #     #item = Item.find_by(name: search.titleize)
-  #     #item ? self.where(name:search.titleize) : Item.all
-  #   where('name ILIKE ?', "%#{search}%")
-  # end
-
-  # def self.filter(filter)
-  #   where(category: filter)
-  # end
-
   CATEGORIES = [
     "Animal Products",
     "Artifacts",

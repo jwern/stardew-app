@@ -32,9 +32,6 @@ class VillagersController < ApplicationController
     @preferences = get_prefs
     @likes = get_opinions("Likes")
     @dislikes = get_opinions("Dislikes")
-
-    # @villagers = get_preferred(@game, "villagers")
-    # @items = get_preferred(@game, "items")
   end
 
   def edit
@@ -77,12 +74,4 @@ class VillagersController < ApplicationController
     def get_game
       @game = Game.find(params[:game_id])
     end
-
-    # def get_game_name
-    #   if @villager.game_id.nil?
-    #     "None"
-    #   else
-    #     Game.find(@villager.game_id).name
-    #   end
-    # end
 end

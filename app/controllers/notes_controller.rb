@@ -2,7 +2,6 @@ class NotesController < ApplicationController
   before_action :get_game
 
   def index
-    #@notes = Note.all
     @notes = @game.notes.sort_by_type
   end
 

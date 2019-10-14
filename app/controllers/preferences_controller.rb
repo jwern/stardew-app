@@ -5,16 +5,13 @@ class PreferencesController < ApplicationController
 
   def index
     @preferences = Preference.all
+    ## This redirect is a current workaround to avoid accessing Preferences/index
     redirect_to controller: 'games', action: 'index'
   end
 
   def create
     @preference = Preference.new(preference_params)
     @game = get_game
-    # @url = request.referrer
-    # @villagers = get_preferred(@game, "villagers")
-    # @items = get_preferred(@game, "items")
-    #@villager = Villager.find(@preference.villager_id)
 
     if @preference.save
       redirect_back(fallback_location: game_villagers_path(@game))
