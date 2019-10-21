@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to game_item_path
     else
+      @preferences = get_prefs
       render :edit
     end
   end

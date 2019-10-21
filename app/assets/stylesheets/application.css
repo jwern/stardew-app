@@ -1,12 +1,7 @@
-/* These variables for the page background color, headers, buttons, and footer
-were added in preparation for allowing different color schemes per game.
-Functionality for this feature has not been written yet. */
-:root {
-  --selected-background: rgb(246, 187, 66); /* Full page background - inner page is white */
-  --selected-headers: rgba(249, 214, 142, 1); /* Table headers */
-  --selected-buttons: rgba(66, 115, 246, 0.95); /* All buttons */
-  --selected-footer: rgba(246, 187, 66, 1) /* Footer */
-}
+/*
+*= require_tree .
+*= require_self
+*/
 
 body {
   min-width: 700px;

@@ -5,6 +5,10 @@
   <%= form.text_field :name %>
 </div>
 <div class="form-input-element">
+  <%= form.label :color_choice %><br>
+  <%= form.select :color_choice, Game::COLORS %>
+</div>
+<div class="form-input-element">
   <%= form.submit class: "button" %>
 </div>
 <% end %>

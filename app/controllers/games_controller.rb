@@ -47,6 +47,8 @@ class GamesController < ApplicationController
       # edit_game_folder(@game_old.name, @game.name)
       redirect_to game_path(@game)
     else
+      @villagers = @game.villagers
+      @items = @game.items
       render :edit
     end
   end
@@ -72,7 +74,7 @@ class GamesController < ApplicationController
 
   private
     def game_params
-      params.require(:game).permit(:name, :search)
+      params.require(:game).permit(:name, :color_choice, :search)
     end
 
     def get_villagers

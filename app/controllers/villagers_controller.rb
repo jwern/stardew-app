@@ -53,6 +53,7 @@ class VillagersController < ApplicationController
     if @villager.save
       redirect_to game_villager_path
     else
+      @preferences = get_prefs
       render :edit
     end
   end

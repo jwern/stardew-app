@@ -1,3 +1,24 @@
 // Place all the styles related to the Games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.blue-red {
+  --selected-background: rgb(42, 224, 255); /* Bright blue */
+  --selected-headers: rgba(115, 234, 255, 1); /* Soft bright blue */
+  --selected-buttons: rgba(255, 74, 43, 0.95); /* Tomato red */
+  --selected-footer: rgba(42, 224, 255, 1) /* Bright blue */
+}
+
+body.yellow-blue {
+  --selected-background: rgb(246, 187, 66); /* Mustard yellow */
+  --selected-headers: rgba(249, 214, 142, 1); /* Soft yellow */
+  --selected-buttons: rgba(66, 115, 246, 0.95); /* Dark sky blue */
+  --selected-footer: rgba(246, 187, 66, 1) /* Mustard yellow */
+}
+
+body.fuschia-green {
+  --selected-background: rgb(188, 54, 167); /* Fuschia */
+  --selected-headers: rgba(216, 126, 202, 1); /* Light fuschia */
+  --selected-buttons: rgba(54, 188, 74, 0.95); /* Deep green */
+  --selected-footer: rgba(188, 54, 167, 1) /* Fuschia */
+}
