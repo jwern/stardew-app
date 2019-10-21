@@ -4,8 +4,8 @@
   border-width: 2px;
   border-right-style: dotted;
   border-bottom-style: dotted;
-  border-right-color: rgb(90, 158, 212);
-  border-bottom-color: rgb(90, 158, 212);
+  border-right-color: var(--selected-headers, rgb(90, 158, 212));
+  border-bottom-color: var(--selected-headers, rgb(90, 158, 212));
 }
 
 // body {

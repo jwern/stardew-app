@@ -2,23 +2,98 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.blue-red {
-  --selected-background: rgb(42, 224, 255); /* Bright blue */
-  --selected-headers: rgba(115, 234, 255, 1); /* Soft bright blue */
-  --selected-buttons: rgba(255, 74, 43, 0.95); /* Tomato red */
-  --selected-footer: rgba(42, 224, 255, 1) /* Bright blue */
-}
+/* Color names / tones in comments from colorate.azurewebsites.net */
 
-body.yellow-blue {
-  --selected-background: rgb(246, 187, 66); /* Mustard yellow */
-  --selected-headers: rgba(249, 214, 142, 1); /* Soft yellow */
-  --selected-buttons: rgba(66, 115, 246, 0.95); /* Dark sky blue */
-  --selected-footer: rgba(246, 187, 66, 1) /* Mustard yellow */
-}
+body {
+  &.blue-red {
+    --selected-background: rgb(42, 224, 255); /* Vivid cyan */
+    --selected-headers: rgba(115, 234, 255, 1); /* Light cyan */
+    --selected-buttons: rgba(255, 74, 43, 0.95); /* Bright red */
+    --selected-footer: rgba(42, 224, 255, 1) /* Vivid cyan */
+  }
 
-body.fuschia-green {
-  --selected-background: rgb(188, 54, 167); /* Fuschia */
-  --selected-headers: rgba(216, 126, 202, 1); /* Light fuschia */
-  --selected-buttons: rgba(54, 188, 74, 0.95); /* Deep green */
-  --selected-footer: rgba(188, 54, 167, 1) /* Fuschia */
+  &.muted-blue-red {
+    --selected-background: rgb(92, 186, 198); /* Light cyan */
+    --selected-headers: rgba(176, 224, 230, 1); /* "PowderBlue" */
+    --selected-buttons: rgba(198, 103, 92, 0.95); /* Soft red */
+    --selected-footer: rgba(92, 186, 198, 1) /* Light cyan */
+  }
+
+  &.yellow-blue {
+    --selected-background: rgb(246, 187, 66); /* Bright orange */
+    --selected-headers: rgba(249, 214, 142, 1); /* Light orange */
+    --selected-buttons: rgba(66, 115, 246, 0.95); /* Vivid navy */
+    --selected-footer: rgba(246, 187, 66, 1) /* Bright orange */
+  }
+
+  &.burnt-orange-blue {
+    --selected-background: rgb(232, 175, 99); /* Soft orange */
+    --selected-headers: rgba(244, 215, 177, 1); /* Pale orange */
+    --selected-buttons: rgba(17, 219, 212, 0.95); /* Vivid cyan */
+    --selected-footer: rgba(232, 175, 99, 1) /* Soft orange */
+  }
+
+  &.green-green {
+    --selected-background: rgb(80, 139, 61); /* Dull green */
+    --selected-headers: rgba(155, 185, 123, 1); /* Light grayish yellow-green */
+    --selected-buttons: rgba(19, 92, 20, 0.95); /* Dark green */
+    --selected-footer: rgba(80, 139, 61, 1) /* Dull green */
+  }
+
+  &.forest-green {
+    --selected-background: rgb(42, 97, 89); /* Dull cyan */
+    --selected-headers: rgba(98, 154, 131, 1); /* Light grayish cyan */
+    --selected-buttons: rgba(9, 36, 40, 0.95); /* Dark cyan */
+    --selected-footer: rgba(42, 97, 89, 1) /* Dull cyan */
+  }
+
+  &.fuschia-green {
+    --selected-background: rgb(188, 54, 167); /* Strong pink */
+    --selected-headers: rgba(216, 126, 202, 1); /* Light pink */
+    --selected-buttons: rgba(54, 188, 74, 0.95); /* Soft green */
+    --selected-footer: rgba(188, 54, 167, 1) /* Strong pink */
+  }
+
+  &.purple-olive {
+    --selected-background: rgb(72, 61, 139); /* "DarkSlateBlue" */
+    --selected-headers: rgba(155, 148, 201, 1); /* Light grayish navy */
+    --selected-buttons: rgba(127, 139, 61, 0.95); /* Dull yellow */
+    --selected-footer: rgba(72, 61, 139, 1) /* "DarkSlateBlue" */
+  }
+
+  &.royal-purple-lavender {
+    --selected-background: rgb(152, 122, 183); /* Light grayish purple */
+    --selected-headers: rgba(227, 217, 237, 1); /* Pale purple */
+    --selected-buttons: rgba(92, 54, 130, 0.95); /* Dull purple */
+    --selected-footer: rgba(152, 122, 183, 1) /* Light grayish purple */
+  }
+
+  &.pink-pink {
+    --selected-background: rgb(205, 102, 137); /* Light pink */
+    --selected-headers: rgba(229, 171, 191, 1); /* Pale pink */
+    --selected-buttons: rgba(180, 44, 90, 0.95); /* Strong pink */
+    --selected-footer: rgba(205, 102, 137, 1) /* Light pink */
+  }
+
+  &.brown-blue {
+    --selected-background: rgb(179, 120, 78); /* Soft orange */
+    --selected-headers: rgba(139, 69, 18, 1); /* Deep orange */
+    --selected-buttons: rgba(18, 89, 139, 0.95); /* Bright blue */
+    --selected-footer: rgba(179, 120, 78, 1) /* Soft orange */
+  }
+
+  &.gray-brown {
+    --selected-background: rgb(101, 109, 120); /* Grayish blue */
+    --selected-headers: rgba(198, 202, 209, 1); /* Pale blue */
+    --selected-buttons: rgba(120, 101, 101, 0.95); /* Grayish red */
+    --selected-footer: rgba(101, 109, 120, 1) /* Grayish blue */
+  }
+
+  &.gray-pink {
+    --selected-background: rgb(105, 105, 105); /* "DimGray" */
+    --selected-headers: rgba(255, 178, 178, 1); /* Pale red */
+    --selected-buttons: rgba(255, 178, 178, 0.95); /* Pale red */
+    --selected-footer: rgba(105, 105, 105, 1) /* "DimGray" */
+  }
+
 }

@@ -6,8 +6,18 @@ class Game < ApplicationRecord
 
   COLORS = {
     "Blue/red" => "blue-red",
+    "Muted blue/red" => "muted-blue-red",
     "Yellow/blue" => "yellow-blue",
-    "Fuschia/green" =>"fuschia-green"
+    "Burnt orange/blue" => "burnt-orange-blue",
+    "Green/green" => "green-green",
+    "Forest green" => "forest-green",
+    "Fuschia/green" => "fuschia-green",
+    "Purple/olive" => "purple-olive",
+    "Royal purple/lavender" => "royal-purple-lavender",
+    "Pink/dark pink" => "pink-pink",
+    "Brown/blue" => "brown-blue",
+    "Gray/brown" => "gray-brown",
+    "Gray/pink" => "gray-pink"
   }
 
   validates :name, { presence: true, uniqueness:
