@@ -29,7 +29,7 @@
         <% @villagers.order(:name).each do |villager| %>
           <tr>
             <td><%= headshot(@game.name, villager.name) %></td>
-            <td><%= villager.name %></td>
+            <td><%= villager.name %> <%= link_to "Hide", "", class: 'hide', data: {'js-hide-link' => true} %></td>
             <td><%= "#{villager.birth_season} #{villager.birth_day}" %></td>
             <td><%= link_to 'Profile', game_villager_path(@game, villager), class: "button" %></td>
           </tr>

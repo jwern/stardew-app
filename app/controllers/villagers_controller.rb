@@ -6,7 +6,12 @@ class VillagersController < ApplicationController
   end
 
   def index
+    respond_to do |format|
+      format.html
+      format.js
+
     @villagers_all = @game.villagers
+
     if params[:search]
       @villagers = @villagers_all.search(params[:search])
     elsif !params[:filter].blank?
@@ -14,6 +19,7 @@ class VillagersController < ApplicationController
     else
       @villagers = @villagers_all
     end
+  end
   end
 
   def create

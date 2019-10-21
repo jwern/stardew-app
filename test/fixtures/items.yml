@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  type: 
+  category:
   sale_price: 1
 
 two:
   name: MyString
-  type: 
+  category:
   sale_price: 1
