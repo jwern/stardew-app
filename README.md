@@ -8,6 +8,7 @@ I used it to learn and practice Rails and CSS.
 It is a personal wiki that can be used to store data about NPCs while playing
 farming sims like Stardew Valley, Rune Factory, etc.  Its primary purpose is
 to help players keep track of NPCs' likes and dislikes for the sake of gift-giving.
+(It was initially created for use in Stardew before the game tracked this data directly.)
 
 ![App screenshot](screenshots/app_screenshot.png)
 
@@ -18,7 +19,6 @@ to help players keep track of NPCs' likes and dislikes for the sake of gift-givi
 The app is in a working state, but there are other features
 I would like to add at some point:
 
-* Option to select color scheme when creating a game
 * Ability to upload images when creating a new villager or item
 * Login so that multiple users can keep their own wikis individually
 
