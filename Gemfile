@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.2'
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -57,7 +57,7 @@ group :test do
 #  gem 'minitest-reporters', '>= 1.1.14'
 #  gem 'guard', '>= 2.13.0'
 #  gem 'guard-minitest', '>= 2.4.4'
-  gem 'win32console'
+  gem 'win32console' if Gem.win_platform?
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
   # # Adds support for Capybara system testing and selenium driver
   # gem 'capybara', '>= 2.15'
