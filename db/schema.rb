@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_174535) do
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.integer "villager_id"
-    t.integer "item_id"
+    t.bigint "villager_id"
+    t.bigint "item_id"
     t.string "opinion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -65,5 +65,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_174535) do
 
   add_foreign_key "items", "games"
   add_foreign_key "notes", "games"
+  add_foreign_key "preferences", "items"
+  add_foreign_key "preferences", "villagers"
   add_foreign_key "villagers", "games"
 end
