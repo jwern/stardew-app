@@ -23,5 +23,5 @@ class Game < ApplicationRecord
   validates :name, { presence: true, uniqueness:
                                     { case_sensitive: false,
                                       message: "already exists" } }
-  #validates :color_choice, inclusion: { in: COLORS.values, message: "%{value} is not a valid color palette" }
+  validates :color_choice, inclusion: { in: COLORS.values, message: "%{value} is not a valid color palette" }
 end
