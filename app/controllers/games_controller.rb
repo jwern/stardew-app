@@ -40,7 +40,7 @@ class GamesController < ApplicationController
   def update
     ## This instance variable is only used for folder creation.
     # @game_old = Game.find(params[:id])
-    @game.update_attributes(game_params)
+    @game.update(game_params)
 
     if @game.save
       ## Removed folder creation until we switch to a cloud storage option.

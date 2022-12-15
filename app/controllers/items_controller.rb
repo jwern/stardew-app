@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   def update
     @item = @game.items.find(params[:id])
 
-    @item.update_attributes(item_params)
+    @item.update(item_params)
 
     if @item.save
       redirect_to game_item_path

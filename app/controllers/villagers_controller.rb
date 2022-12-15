@@ -43,7 +43,7 @@ class VillagersController < ApplicationController
   def update
     @villager = @game.villagers.find(params[:id])
 
-    @villager.update_attributes(villager_params)
+    @villager.update(villager_params)
 
     if @villager.save
       redirect_to game_villager_path

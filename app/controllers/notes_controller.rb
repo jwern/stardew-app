@@ -26,7 +26,7 @@ class NotesController < ApplicationController
   def update
     @note = @game.notes.find(params[:id])
 
-    @note.update_attributes(note_params)
+    @note.update(note_params)
 
     if @note.save
       redirect_to game_path(@game)
